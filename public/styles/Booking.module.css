@@ -3,7 +3,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   /* margin: 0 auto; */
-  margin-top: 900px !important;
+  margin-top: 50px !important;
 }
 
 .booking_bg {
@@ -74,4 +74,11 @@
   height: 150px;
   background-size: cover;
   border-radius: 15px;
+}
+
+.booking_search {
+  margin-top: 900px;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useRef } from "react";
 import Header from "./Container/Header/Header";
 import styles from "../../public/styles/Test.module.css";
 import dynamic from "next/dynamic";
@@ -16,6 +16,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import emailjs from "@emailjs/browser";
 
 export default function Test() {
   let productsp = [
@@ -206,6 +207,29 @@ export default function Test() {
     }
   }
 
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_4x06svs",
+        "template_b79mc17",
+        form.current,
+        "lq0uIX0QtsFTPLE6C"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          e.target.reset();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     // <MainLayout>
     <div>
@@ -213,7 +237,7 @@ export default function Test() {
         {/* <div className={styles.main_bg_image}> */}
         <div className={styles.overlay}></div>
         <video className={styles.video_bg} autoPlay loop muted>
-          <source src="./images/video3.mp4" />
+          <source src="./images/vide4.mp4" />
         </video>
         <div className={styles.main_name}>
           <div className={styles.logo_center}>
@@ -497,17 +521,45 @@ export default function Test() {
       <div className={styles.connect_us}>
         <div className={styles.message}>
           <h1>Оставить сообщение</h1>
-          <div className={styles.input_group}>
-            <input type="text" placeholder="Ф.И.О" />
-            <input type="text" placeholder="E-mail" />
+          {/* <form ref={form} className={styles.input_group} onSubmit={sendEmail}>
+            <label>Ф.И.О</label>
+            <input type="text" name="user_name" />
+            <label>Ф.И.О</label>
+            <input type="email" name="user_email" />
             <input
               className={styles.input_message}
               type="text"
               placeholder="Ваше сообщение"
+              name="message"
             />
-          </div>
-          <button>Оставить сообщение</button>
+            <input
+              type="submit"
+              placeholder="Оставить сообщение"
+              value="Send"
+            />
+          </form> */}{" "}
+          <form ref={form} onSubmit={sendEmail}>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Имя"
+              className={styles.message_inp}
+            />
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Email"
+              className={styles.message_inp}
+            />
+            <textarea name="message" className={styles.input_message} />
+            <input
+              type="submit"
+              value="Отправить"
+              className={styles.input_button}
+            />
+          </form>
         </div>
+
         <Footer id={styles.footer_contact} />
       </div>
     </div>

@@ -30,7 +30,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/booking">ТОВАРЫ</Link>
+              <Link href="/booking">ENCAR ТОВАРЫ</Link>
             </li>
             <li>
               <Link href="/contacts">АДРЕС</Link>

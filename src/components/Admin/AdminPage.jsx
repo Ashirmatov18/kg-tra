@@ -110,42 +110,6 @@ export default function AdminPage() {
         <button onClick={() => fromHigherToLower()}>+++</button>
       </div>
 
-      {data &&
-        paginateData.map((item, index) => {
-          return (
-            <div className={styles.card} key={index}>
-              <ul className={styles.card_menu}>
-                <Link className={styles.car_menu_item}>
-                  <Image
-                    className={styles.card_menu_img}
-                    src={item.secondimage}
-                    alt="card_menu_img"
-                  />
-                </Link>
-              </ul>
-
-              {/* <div
-                style={{ backgroundImage: `url(${item.image})` }}
-                
-              ></div> */}
-              <img src={item.image} className={styles.card_img} />
-
-              <div className={styles.card_info}>
-                <h1 className={styles.card_title}>{item.name}</h1>
-                <p className={styles.card_desc}>{item.price}</p>
-                <div className={styles.card_button_body}>
-                  <Link
-                    href={"/catalogdetail/[id]"}
-                    as={`/catalogdetail/${item.id}`}
-                  >
-                    <button className={styles.card_button}>Подробнее</button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-
       <div className={styles.card_list}>
         {data &&
           paginateData.map((item, index) => {

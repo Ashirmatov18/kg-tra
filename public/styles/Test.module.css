@@ -53,13 +53,13 @@
 .logo_center h1 {
   font-size: 95px;
   /* color: #142c56; */
-  color: #fece08;
   /* color: #142c56; */
+  color: #fff;
 }
 
 .logo_center h1 strong {
+  color: #fece08;
   /* color: #142c56; */
-  color: red;
 }
 
 .main_name {
@@ -350,6 +350,12 @@
   border-radius: 30px;
 }
 
+.message form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .message h1 {
   font-weight: 700;
   font-size: 26px;
@@ -361,13 +367,28 @@
   color: #142c56;
 }
 
-.message input {
+.message_inp {
   height: 40px;
   border: none;
   border-bottom: 1px solid black;
   background: #fffdf8;
   padding-top: 20px;
   margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  padding: 10px;
+  /* background-color: red;s */
+}
+
+.message textarea {
+  border-bottom: 1px solid black;
+  /* border: none; */
+  padding: 10px;
+  margin-bottom: 25px;
+  background: #fffdf8;
+  font-size: 17px;
+
+  border-radius: 10px;
 }
 
 .input_group {
@@ -389,7 +410,7 @@
   height: 130px !important;
 }
 
-.message button {
+.input_button {
   height: 64px;
   /* background: linear-gradient(93.82deg, #a1cb09 13.82%, #6a7a2f 96.11%); */
   background: #142c56;
