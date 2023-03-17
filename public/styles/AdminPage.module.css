@@ -70,15 +70,11 @@
   flex-direction: column;
   margin-bottom: 70px;
 }
-.bg_img {
-  /* position: absolute; */
+/* .bg_img {
   width: 100%;
   height: auto;
   left: 0;
-  /* background-image: url("https://images.unsplash.com/photo-1619204715997-1367fe5812f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1889&q=80");
-  background-size: cover;
-  background-position: center; */
-}
+} */
 .car_card {
   width: 400px;
   height: 470px;
@@ -346,6 +342,20 @@
 
 .card:hover::before {
   opacity: 1s;
+}
+
+.sidebar_main {
+  position: absolute;
+  left: 0;
+  /* margin-top: 765px; */
+}
+
+.sidebar {
+  /* position: fixed !important; */
+  /* background-color: red; */
+  width: 400px !important;
+  height: 100vh;
+  /* margin-top: 780px; */
 }
 
 @media (min-width: 768px) {

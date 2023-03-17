@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/adminadd": [
+    "/booking": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/adminadd.js"
+      "static/chunks/pages/booking.js"
     ],
     "/catalog": [
       "static/chunks/webpack.js",

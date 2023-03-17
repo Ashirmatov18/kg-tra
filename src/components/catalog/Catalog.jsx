@@ -24,7 +24,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-
+import { ProSidebarProvider } from "react-pro-sidebar";
+import {
+  Sidebar,
+  Menu,
+  MenuItem,
+  SubMenu,
+  useProSidebar,
+  sidebarClasses,
+} from "react-pro-sidebar";
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#fdce08",
@@ -192,6 +200,31 @@ export default function Catalog() {
             BMW
           </button>
         </div>
+        {/* <ProSidebarProvider>
+          <Sidebar
+            rootStyles={{
+              [`.${sidebarClasses.container}`]: {
+                color: "#142c56",
+              },
+            }}
+            className={styles.sidebar}
+          >
+            <Menu>
+              <SubMenu label="ПО ЦЕНЕ">
+                <MenuItem onClick={() => fromHigherToLower()}>
+                  Самые дорогие
+                </MenuItem>
+                <MenuItem onClick={() => fromLowerToHigher()}>
+                  Самые дешевые
+                </MenuItem>
+              </SubMenu>
+              <MenuItem onClick={() => getUsers()}> ВСЕ МАШИНЫ </MenuItem>
+
+              <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
+              <MenuItem onClick={() => filterItem("볼보")}> 볼보 </MenuItem>
+            </Menu>
+          </Sidebar>
+        </ProSidebarProvider> */}
 
         <div className={styles.bg_img}>
           <div className={styles.card_list}>

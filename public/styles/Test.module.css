@@ -97,16 +97,16 @@
 }
 
 .main_page_number_first:first-child {
-  border-right: 2px solid red;
+  border-right: 2px solid #fff;
   padding-right: 10px;
-  border: 2px solid red;
-  background-color: #142c56;
+  border: 2px solid #fff;
+  /* background-color: #142c56; */
 }
 
 .main_page_number_first:last-child {
   padding-left: 10px;
-  border: 2px solid red;
-  background-color: #142c56;
+  border: 2px solid #fff;
+  /* background-color: #142c56; */
 }
 
 .main_page_number_img {

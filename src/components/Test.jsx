@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Header from "./Container/Header/Header";
 import styles from "../../public/styles/Test.module.css";
 import dynamic from "next/dynamic";
@@ -10,8 +10,6 @@ import Footer from "./Container/footer/Footer";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Link from "next/link";
 import Image from "next/image";
-// import logo from "../../public/images/IMG0844.PNG";
-// import call from "../../public/images/16968441221536925048.svg";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -19,6 +17,12 @@ import Select from "@mui/material/Select";
 import emailjs from "@emailjs/browser";
 
 export default function Test() {
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   let productsp = [
     {
       id: 1,
@@ -229,6 +233,20 @@ export default function Test() {
         }
       );
   };
+  const getUsers = async () => {
+    const response = await axios.get("http://localhost:5000/api/get");
+    if (response.status === 200) {
+      setState(response.data);
+    }
+  };
+
+  console.log(
+    state.slice(0, 5).map((item, index) => {
+      console.log(item.id);
+    })
+  );
+
+  // const arr = state.map()
 
   return (
     // <MainLayout>

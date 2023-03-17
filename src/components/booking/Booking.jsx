@@ -146,9 +146,9 @@ export default function Booking() {
                 <MenuItem> Line charts </MenuItem>
               </SubMenu>
               <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
-
               <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
               <MenuItem onClick={() => filterItem("볼보")}> 볼보 </MenuItem>
+              <MenuItem onClick={() => filterItem("벤츠")}> Mercedes </MenuItem>
             </Menu>
           </Sidebar>{" "}
         </div>
