@@ -195,8 +195,9 @@ export default function Booking() {
           ) : (
             <></>
           )}
-          {detail.map((pop) => (
+          {detail.map((pop, index) => (
             <Modal
+              key={index}
               open={open}
               onClose={handleClose}
               aria-labelledby="modal-modal-title"

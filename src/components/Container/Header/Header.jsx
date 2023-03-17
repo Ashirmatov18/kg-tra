@@ -16,7 +16,7 @@ export default function Header() {
         <div className={styles.wrapper}>
           <ul>
             <li>
-              <Link href="/" key="catalog">
+              <Link href="/">
                 ГЛ СТРАНИЦА
                 {/* <Image className={styles.logo} src={logo} alt="logo" /> */}
                 {/* <Image className={styles.logo} src={logo} width={50} height={50} /> */}
