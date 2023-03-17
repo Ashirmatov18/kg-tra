@@ -1,5 +1,6 @@
 import Footer from "@/components/Container/footer/Footer";
 import Header from "@/components/Container/Header/Header";
+import Link from "next/link";
 import React from "react";
 import styles from "../../../public/styles/Detail.module.css";
 // import "../../app/globals.css";
@@ -15,9 +16,9 @@ const catalogDetails = ({ item }) => {
             <div className={styles.img_display}>
               <div className={styles.img_showcase}>
                 <img src={item[0].image} alt="shoe5 image" />
-                <img src={item[0].image} alt="shoe 4image" />
-                <img src={item[0].image} alt="shoe 6image" />
-                <img src={item[0].image} alt="shoe 7image" />
+                <img src={item[0].mainImage} alt="shoe 4image" />
+                <img src={item[0].secondImage} alt="shoe 6image" />
+                <img src={item[0].thirdImage} alt="shoe 7image" />
               </div>
             </div>
             <div className={styles.img_select}>
@@ -61,9 +62,9 @@ const catalogDetails = ({ item }) => {
           </div>
           <div className={styles.product_content}>
             <h2 className={styles.product_title}>{item[0].name}</h2>
-            <a href="#" className={styles.product}>
+            <Link href="/" className={styles.product}>
               Перейти на главную
-            </a>
+            </Link>
             <div className={styles.product_rating}>
               {/* <i className={styles.fas fa-star"></i>
               <i className={styles.fas fa-star"></i>
@@ -84,31 +85,23 @@ const catalogDetails = ({ item }) => {
 
             <div className={styles.product_detail}>
               <h2>О машине: </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-                eveniet veniam tempora fuga tenetur placeat sapiente architecto
-                illum soluta consequuntur, aspernatur quidem at sequi ipsa!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consequatur, perferendis eius. Dignissimos, labore suscipit.
-                Unde.
-              </p>
+              <p>{item.description}</p>
+
               <ul>
                 <li>
                   Цвет: <span>{item[0].color}</span>
                 </li>
                 <li>
-                  В наличие какой страны: <span>in stock</span>
+                  В наличие какой страны: <span>{item[0].country}</span>
                 </li>
                 <li>
-                  Комплектация: <span>Shoes</span>
+                  Комплектация: <span>{item[0].equipment}</span>
                 </li>
                 <li>
-                  Пробег: <span>All over the world</span>
+                  Пробег: <span>{item[0].mileage}</span>
                 </li>
                 <li>
-                  Обьем двигателя: <span>Free</span>
+                  Обьем двигателя: <span>{item[0].driving}</span>
                 </li>
                 <li>
                   Год выпуска: <span>{item[0].year}</span>

@@ -114,7 +114,7 @@ export default function Catalog() {
         <h1>КАТАЛОГ</h1>
       </div>
       <main className={styles.main} id={styles.main_catalog}>
-        <Box sx={{ display: "flex" }}>
+        {/* <Box sx={{ display: "flex" }}>
           <CssBaseline />
           <Drawer
             sx={{
@@ -152,93 +152,93 @@ export default function Catalog() {
           >
             <Toolbar />
 
-            <Typography paragraph>
-              <div className={styles.searchbar}>
-                <CssTextField
-                  id="standard-basic"
-                  label="ПОИСК"
-                  variant="standard"
-                  onChange={(e) => setValue(e.target.value)}
-                  className={styles.searchbar}
-                />
-              </div>
-              <div className={styles.button_group}>
-                <button
-                  className={styles.button_74}
-                  role="button"
-                  onClick={() => getUsers()}
-                >
-                  Все машины
-                </button>
-                <button
-                  className={styles.button_74}
-                  role="button"
-                  onClick={() => fromLowerToHigher()}
-                >
-                  Самые дешевые
-                </button>
-                <button
-                  className={styles.button_74}
-                  role="button"
-                  onClick={() => fromHigherToLower()}
-                >
-                  Самые дорогие
-                </button>
-                <button
-                  className={styles.button_74}
-                  role="button"
-                  onClick={() => filterItem("asdsa")}
-                >
-                  BMW
-                </button>
-              </div>
+            <Typography paragraph> */}
+        <div className={styles.searchbar}>
+          <CssTextField
+            id="standard-basic"
+            label="ПОИСК"
+            variant="standard"
+            onChange={(e) => setValue(e.target.value)}
+            className={styles.searchbar}
+          />
+        </div>
+        <div className={styles.button_group}>
+          <button
+            className={styles.button_74}
+            role="button"
+            onClick={() => getUsers()}
+          >
+            Все машины
+          </button>
+          <button
+            className={styles.button_74}
+            role="button"
+            onClick={() => fromLowerToHigher()}
+          >
+            Самые дешевые
+          </button>
+          <button
+            className={styles.button_74}
+            role="button"
+            onClick={() => fromHigherToLower()}
+          >
+            Самые дорогие
+          </button>
+          <button
+            className={styles.button_74}
+            role="button"
+            onClick={() => filterItem("asdsa")}
+          >
+            BMW
+          </button>
+        </div>
 
-              <div className={styles.bg_img}>
-                <div className={styles.card_list}>
-                  {data &&
-                    paginateData.map((item, index) => {
-                      return (
-                        <>
-                          <div key={index} className={styles.card}>
-                            <ul className={styles.card_menu}>
-                              <a className={styles.car_menu_item}>
-                                <img
-                                  className={styles.card_menu_img}
-                                  src={item.secondimage}
-                                />
-                              </a>
-                            </ul>
-                            <img src={item.image} className={styles.card_img} />
+        <div className={styles.bg_img}>
+          <div className={styles.card_list}>
+            {data &&
+              paginateData.map((item, index) => {
+                return (
+                  <>
+                    <div key={index} className={styles.card}>
+                      <ul className={styles.card_menu}>
+                        <a className={styles.car_menu_item}>
+                          <img
+                            className={styles.card_menu_img}
+                            src={item.secondimage}
+                          />
+                        </a>
+                      </ul>
+                      <img src={item.image} className={styles.card_img} />
 
-                            <div className={styles.card_info}>
-                              <h1 className={styles.card_title}>{item.name}</h1>
-                              <p className={styles.card_desc}>{item.price} $</p>
-                              <div className={styles.card_button_body}>
-                                <Link
-                                  href={"/catalogdetail/[id]"}
-                                  as={`/catalogdetail/${item.id}`}
-                                >
-                                  <button className={styles.card_button}>
-                                    Подробнее
-                                  </button>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </>
-                      );
-                    })}
-                  <PaginationRounded
-                    items={searchItem.length}
-                    currentPage={currentPage}
-                    pageSize={pageSize}
-                    onPageChange={handlePageChange}
-                  />
-                </div>
-              </div>
-            </Typography>
+                      <div className={styles.card_info}>
+                        <h1 className={styles.card_title}>{item.name}</h1>
+                        <p className={styles.card_desc}>{item.price} $</p>
+                        <div className={styles.card_button_body}>
+                          <Link
+                            href={"/catalogdetail/[id]"}
+                            as={`/catalogdetail/${item.id}`}
+                          >
+                            <button className={styles.card_button}>
+                              Подробнее
+                            </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            <PaginationRounded
+              items={searchItem.length}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        </div>
+        {/* </Typography>
           </Box>
-        </Box>
+        </Box> */}
       </main>
 
       <Footer id={styles.footer_catalog} />

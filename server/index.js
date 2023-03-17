@@ -113,6 +113,60 @@ app.delete("/api/remove/:id", (req, res) => {
 //   res.send(200);
 // });
 
+// app.post("/api/post", (req, res) => {
+//   const {
+//     name,
+//     year,
+//     color,
+//     price,
+//     driving,
+//     image,
+//     mainimage,
+//     secondimage,
+//     thirdimage,
+//     country,
+//     mileage,
+//     description,
+//     equipment,
+//   } = req.body;
+//   // const file = req.files.screenshot;
+//   // const fileExtension = file.name.split(".").pop();
+//   // const filename = uuidv4() + "." + fileExtension;
+//   // let uploadPath = __dirname + "/uploads/" + filename;
+//   // file.mv(uploadPath, (err) => {
+//   //   if (err) {
+//   //     return res.send(err);
+//   //   }
+
+//   const sqlInsert =
+//     "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment,) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+//   db.query(
+//     sqlInsert,
+//     [
+//       name,
+//       year,
+//       color,
+//       price,
+//       driving,
+//       image,
+//       mainimage,
+//       secondimage,
+//       thirdimage,
+//       country,
+//       mileage,
+//       description,
+//       equipment,
+//     ]
+//     //     (error, result) => {
+//     //       if (error) {
+//     //         console.log(error);
+//     //       }
+//     //     }
+//     //   );
+//     // });
+//   );
+// });
+
 app.post("/api/post", (req, res) => {
   const {
     name,
@@ -129,42 +183,31 @@ app.post("/api/post", (req, res) => {
     description,
     equipment,
   } = req.body;
-  const file = req.files.screenshot;
-  const fileExtension = file.name.split(".").pop();
-  const filename = uuidv4() + "." + fileExtension;
-  let uploadPath = __dirname + "/uploads/" + filename;
-  console.log(req.files);
-  file.mv(uploadPath, (err) => {
-    if (err) {
-      return res.send(err);
-    }
-
-    const sqlInsert =
-      "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment,) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, )";
-    db.query(
-      sqlInsert,
-      [
-        name,
-        year,
-        color,
-        price,
-        driving,
-        image,
-        mainimage,
-        secondimage,
-        thirdimage,
-        country,
-        mileage,
-        description,
-        equipment,
-      ],
-      (error, result) => {
-        if (error) {
-          console.log(error);
-        }
+  const sqlInsert =
+    "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  db.query(
+    sqlInsert,
+    [
+      name,
+      year,
+      color,
+      price,
+      driving,
+      image,
+      mainimage,
+      secondimage,
+      thirdimage,
+      country,
+      mileage,
+      description,
+      equipment,
+    ],
+    (error, result) => {
+      if (error) {
+        console.log(error);
       }
-    );
-  });
+    }
+  );
 });
 
 app.get("/", (req, res) => {});

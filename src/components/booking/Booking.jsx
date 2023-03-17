@@ -3,7 +3,19 @@ import styles from "../../../public/styles/Booking.module.css";
 import axios from "axios";
 import Header from "../Container/Header/Header";
 import MainLayout from "../MainLayout";
-import { functionsIn } from "lodash";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { ProSidebarProvider } from "react-pro-sidebar";
+import {
+  Sidebar,
+  Menu,
+  MenuItem,
+  SubMenu,
+  useProSidebar,
+  sidebarClasses,
+} from "react-pro-sidebar";
+
 export default function Booking() {
   const [state, setState] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -11,6 +23,15 @@ export default function Booking() {
   const [totalCount, setTotalCount] = useState(0);
   const [value, setValue] = useState("");
   const [search, setSearch] = useState("");
+  const [detail, setDetail] = useState([]);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const carDetail = (item) => {
+    setDetail([item]);
+    handleOpen();
+  };
   // const [filterState, setFilterState] = useState("");
   // useEffect(() => {
   //   getEncarCar().then((data) => setState({ data }));
@@ -87,21 +108,50 @@ export default function Booking() {
     };
   }, [filterItem]);
 
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
   return (
     <>
       <div className={styles.booking_bg}>
         <h1>Машины из кореи </h1>
       </div>
-      <Header />
+      <Header />;
       <MainLayout>
         <input
           type="text"
           onChange={(event) => setValue(event.target.value)}
           className={styles.booking_search}
         />
-        <button onClick={() => filterItem("BMW")}>bmw</button>
-        <button onClick={() => filterItem("")}>all</button>
-        <button onClick={() => filterItem("볼보")}>볼보</button>
+        <div className={styles.sidebar_main}>
+          <Sidebar
+            rootStyles={{
+              [`.${sidebarClasses.container}`]: {
+                color: "#142c56",
+              },
+            }}
+            className={styles.sidebar}
+          >
+            <Menu>
+              <SubMenu label="Charts">
+                <MenuItem> Pie charts </MenuItem>
+                <MenuItem> Line charts </MenuItem>
+              </SubMenu>
+              <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
+
+              <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
+              <MenuItem onClick={() => filterItem("볼보")}> 볼보 </MenuItem>
+            </Menu>
+          </Sidebar>{" "}
+        </div>
 
         <div className={styles.encar_product}>
           {!!state && state.length ? (
@@ -137,6 +187,7 @@ export default function Booking() {
                   <div className={styles.pricing_info}>
                     <p>Цена: {item.Price}</p>
                     <p>Модель: {item.Manufacturer}</p>
+                    <button onClick={() => carDetail(item)}>Открыть</button>
                   </div>
                 </div>
               </div>
@@ -144,8 +195,20 @@ export default function Booking() {
           ) : (
             <></>
           )}
+          {detail.map((pop) => (
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style} style={{ color: "red" }}>
+                {pop.Id}
+              </Box>
+            </Modal>
+          ))}
         </div>
-      </MainLayout>
+      </MainLayout>{" "}
       {/* <Footer /> */}
     </>
   );

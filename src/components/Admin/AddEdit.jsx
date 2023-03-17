@@ -102,16 +102,13 @@ export default function AddEdit(props) {
       alert("error");
     } else {
       if (!id) {
-        const form = new FormData();
-        form.append("screenshot", file);
-        for (const key in inState) {
-          form.append(key, inState[key]);
-        }
+        // const form = new FormData();
+        // form.append("screenshot", file);
+        // for (const key in inState) {
+        //   form.append(key, inState[key]);
+        // }
         axios
-          .post("http://localhost:5000/api/post", form, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
+          .post("http://localhost:5000/api/post", {
             name,
             year,
             color,
@@ -145,7 +142,8 @@ export default function AddEdit(props) {
             setFile(null);
           })
           .catch((err) => {
-            toast.error(err.response.data);
+            // toast.error(err.response.data);
+            console.log("error");
           });
       } else {
         // updateContact(inState, id);
@@ -377,10 +375,11 @@ export default function AddEdit(props) {
             name="image"
             id="image"
             // placeholder="Вставить картинку"
-            onChange={handleFileChange}
-            // defaultValue={image || ""}
+            // onChange={handleFileChange}
+            onChange={handleChangeInput}
+            defaultValue={image || ""}
             className={styles.input}
-            type="file"
+            type="text"
           />
           <div className={`${styles.cut} ${styles.cut_short}`}></div>
           <label for="COMPLECT" className={styles.placeholder}>
