@@ -17,6 +17,7 @@ import {
 } from "react-pro-sidebar";
 import "lightbox.js-react/dist/index.css";
 import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
+import ScrollUpButton from "react-scroll-up-button";
 
 export default function Booking() {
   const [state, setState] = useState([]);
@@ -153,8 +154,20 @@ export default function Booking() {
               </SubMenu>
               <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
               <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
-              <MenuItem onClick={() => filterItem("볼보")}> 볼보 </MenuItem>
+              <MenuItem onClick={() => filterItem("볼보")}> Volvo </MenuItem>
               <MenuItem onClick={() => filterItem("벤츠")}> Mercedes </MenuItem>
+              <MenuItem onClick={() => filterItem("아우디")}> Audi </MenuItem>
+              <MenuItem onClick={() => filterItem("미니")}> Mini </MenuItem>
+              <MenuItem onClick={() => filterItem("포르쉐")}> Porshe </MenuItem>
+              <MenuItem onClick={() => filterItem("포르쉐")}> Porshe </MenuItem>
+              <MenuItem onClick={() => filterItem("랜드로버")}>
+                {" "}
+                Land Rover{" "}
+              </MenuItem>
+              <MenuItem onClick={() => filterItem("폭스바겐")}>
+                {" "}
+                Wolswagen{" "}
+              </MenuItem>
             </Menu>
           </Sidebar>{" "}
         </div>
@@ -210,24 +223,28 @@ export default function Booking() {
               aria-describedby="modal-modal-description"
             >
               <Box sx={style} style={{ color: "#000" }}>
-                <SlideshowLightbox className="container grid grid-cols-3 gap-2 mx-auto">
+                <SlideshowLightbox
+                  style={{ display: "flex" }}
+                  // className="cocontainer grid grid-cols-3 gap-2 mx-auto lightboxjs"
+                  className={styles.slideshow}
+                >
                   <img
                     style={{ width: "300px" }}
                     className="w-full rounded"
                     src={`https://ci.encar.com${pop.Photos[0].location}`}
                   />
                   <img
-                    style={{ width: "300px" }}
+                    style={{ width: "50px", height: "50px" }}
                     className="w-full rounded"
                     src={`https://ci.encar.com${pop.Photos[1].location}`}
                   />
                   <img
-                    style={{ width: "300px" }}
+                    style={{ width: "50px", height: "50px" }}
                     className="w-full rounded"
                     src={`https://ci.encar.com${pop.Photos[2].location}`}
                   />
                   <img
-                    style={{ width: "300px" }}
+                    style={{ width: "50px", height: "50px" }}
                     className="w-full rounded"
                     src={`https://ci.encar.com${pop.Photos[3].location}`}
                   />
@@ -241,6 +258,7 @@ export default function Booking() {
             </Modal>
           ))}
         </div>
+        <ScrollUpButton />
       </MainLayout>{" "}
       {/* <Footer /> */}
     </>

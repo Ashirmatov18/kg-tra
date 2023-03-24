@@ -98,3 +98,10 @@
   height: 100vh;
   /* margin-top: 780px; */
 }
+
+.slideshow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+}

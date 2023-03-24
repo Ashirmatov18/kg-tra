@@ -30,10 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/contacts": [
+    "/booking": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contacts.js"
+      "static/chunks/pages/booking.js"
+    ],
+    "/catalogdetail/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/catalogdetail/[id].js"
     ]
   },
   "ampFirstPages": []

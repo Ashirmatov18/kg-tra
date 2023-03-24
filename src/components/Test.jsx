@@ -240,12 +240,28 @@ export default function Test() {
     }
   };
 
-  console.log(
-    state.slice(0, 5).map((item, index) => {
-      console.log(item.id);
-    })
-  );
+  const carItems = state.slice(0, 6).map((item, index) => (
+    <div key={index} className={styles.card}>
+      <ul className={styles.card_menu}>
+        <a className={styles.car_menu_item}>
+          <img className={styles.card_menu_img} src={item.secondimage} />
+        </a>
+      </ul>
+      <img src={item.image} className={styles.card_img} />
 
+      <div className={styles.card_info}>
+        <h1 className={styles.card_title}>{item.name}</h1>
+        <p className={styles.card_desc}>{item.price} $</p>
+        <div className={styles.card_button_body}>
+          <Link href={"/catalogdetail/[id]"} as={`/catalogdetail/${item.id}`}>
+            <button className={styles.card_button}>Подробнее</button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  ));
+
+  console.log(carItems);
   // const arr = state.map()
 
   return (
@@ -412,7 +428,8 @@ export default function Test() {
       >
         Наш Каталог
       </h1>
-      <div className={styles.car_storage}>
+      <div className={styles.card_block}>{carItems}</div>
+      {/* <div className={styles.car_storage}>
         <div className={styles.car_card}>
           <div className={styles.car_card_img}></div>
           <h3 className={styles.car_card_title}>Range Rover</h3>
@@ -448,7 +465,7 @@ export default function Test() {
           <h3 className={styles.car_card_title}>Range Rover</h3>
           <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
         </div>
-      </div>
+      </div> */}
       <div className={styles.button_container}>
         <button className={styles.storage_button}>
           <Link href="/catalog">Перейти ко всем</Link>
