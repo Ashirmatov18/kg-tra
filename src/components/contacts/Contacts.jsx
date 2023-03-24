@@ -60,10 +60,10 @@
 
 import Head from "next/head";
 import styles from "../../../public/styles/Contact.module.css";
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 import { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Footer from "../Container/footer/Footer";
+import mapboxgl from "mapbox-gl";
 
 export default function Contacts() {
   const [Map, setMap] = useState();
@@ -76,14 +76,14 @@ export default function Contacts() {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [-77.034084142948, 38.909671288923],
+          coordinates: [74.586269, 42.8904163],
         },
         properties: {
           phoneFormatted: "(202) 234-7336",
           phone: "2022347336",
-          address: "1471 P St NW",
-          city: "Washington DC",
-          country: "United States",
+          address: "Manas",
+          city: "Bishkek",
+          country: "Kyrgyzstan",
           crossStreet: "at 15th St NW",
           postalCode: "20005",
           state: "D.C.",
@@ -144,7 +144,7 @@ export default function Contacts() {
   };
 
   mapboxgl.accessToken =
-    "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA";
+    "pk.eyJ1IjoiYXNoaXJtYXRvdjE4IiwiYSI6ImNsZmxzdzh4aTAxOW8zcm1oZ2ZjNW80cTUifQ.4yikT3U91mAPh6-z6dfD8Q";
 
   /**
    * Assign a unique id to each store. You'll use this `id`
@@ -152,23 +152,8 @@ export default function Contacts() {
    * in the sidebar.
    */
   stores.features.forEach((store, i) => {
-    store.properties.id = i;
+    store.properties.id = new Date();
   });
-
-  useEffect(() => {
-    setPageIsMounted(true);
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/outdoors-v12",
-      center: [-77.034084, 38.909671],
-      zoom: 12.5,
-      // scrollZoom: false
-    });
-
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl(), "top-right");
-    setMap(map);
-  }, []);
 
   useEffect(() => {
     if (pageIsMounted && stores) {
@@ -182,6 +167,22 @@ export default function Contacts() {
       });
     }
   });
+
+  useEffect(() => {
+    setPageIsMounted(true);
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/outdoors-v12",
+      center: [-76.034084, 58.909671],
+      zoom: 12.5,
+      // scrollZoom: false
+    });
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl(), "top-right");
+    setMap(map);
+  }, []);
+  console.log(new Date());
 
   /**
    * Add a marker to the map for every store listing.
@@ -255,7 +256,6 @@ export default function Contacts() {
       if (store.properties.phone) {
         details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`;
       }
-
       /**
        * Listen to the element and when it is clicked, do four things:
        * 1. Update the `currentFeature` to the store associated with the clicked link

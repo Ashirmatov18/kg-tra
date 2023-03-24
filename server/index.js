@@ -1,12 +1,11 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-// import userRoutes from "./routes/users.js";
 import mysql from "mysql2";
 import multer from "multer";
 import fileUpload from "express-fileupload";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import path from "path";
+import crypto from "crypto";
 
 const app = express();
 const port = 5000;
@@ -17,14 +16,13 @@ const db = mysql.createPool({
   password: "Darigul250268",
   database: "car_data",
 });
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 app.use(fileUpload());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(express.static(path.resolve("static")));
 // app.use("/", userRoutes);
 
 app.get("/api/get", (req, res) => {
@@ -101,18 +99,6 @@ app.delete("/api/remove/:id", (req, res) => {
   });
 });
 
-// app.post("/api/img", (req, res) => {
-//   const filename = Date.now() + "_" + req.files.screenshot.name;
-//   const file = req.files.screenshot;
-//   let uploadPath = __dirname + "/uploads/" + filename;
-//   file.mv(uploadPath, (err) => {
-//     if (err) {
-//       return res.send(err);
-//     }
-//   });
-//   res.send(200);
-// });
-
 // app.post("/api/post", (req, res) => {
 //   const {
 //     name,
@@ -129,17 +115,8 @@ app.delete("/api/remove/:id", (req, res) => {
 //     description,
 //     equipment,
 //   } = req.body;
-//   // const file = req.files.screenshot;
-//   // const fileExtension = file.name.split(".").pop();
-//   // const filename = uuidv4() + "." + fileExtension;
-//   // let uploadPath = __dirname + "/uploads/" + filename;
-//   // file.mv(uploadPath, (err) => {
-//   //   if (err) {
-//   //     return res.send(err);
-//   //   }
-
 //   const sqlInsert =
-//     "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment,) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+//     "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 //   db.query(
 //     sqlInsert,
 //     [
@@ -156,16 +133,36 @@ app.delete("/api/remove/:id", (req, res) => {
 //       mileage,
 //       description,
 //       equipment,
-//     ]
-//     //     (error, result) => {
-//     //       if (error) {
-//     //         console.log(error);
-//     //       }
-//     //     }
-//     //   );
-//     // });
+//     ],
+//     (error, result) => {
+//       if (error) {
+//         console.log(error);
+//       }
+//     }
 //   );
 // });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./static");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const fileFilter = function (req, file, cb) {
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb(new Error("File type not supported"), false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+});
 
 app.post("/api/post", (req, res) => {
   const {
@@ -174,7 +171,6 @@ app.post("/api/post", (req, res) => {
     color,
     price,
     driving,
-    image,
     mainimage,
     secondimage,
     thirdimage,
@@ -183,6 +179,17 @@ app.post("/api/post", (req, res) => {
     description,
     equipment,
   } = req.body;
+  const { image } = req.files;
+  console.log(req.files);
+
+  if (!image) {
+    res.status(400).json({ error: "No file was uploaded" });
+    return;
+  }
+  console.log(image);
+  let fileName = crypto.randomUUID() + "." + image.mimetype.split("/")[1];
+
+  image.mv(path.resolve("static", fileName));
   const sqlInsert =
     "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   db.query(
@@ -193,7 +200,7 @@ app.post("/api/post", (req, res) => {
       color,
       price,
       driving,
-      image,
+      fileName,
       mainimage,
       secondimage,
       thirdimage,
@@ -205,11 +212,13 @@ app.post("/api/post", (req, res) => {
     (error, result) => {
       if (error) {
         console.log(error);
+        res.status(500).json({ error: "Failed to insert data into database" });
+      } else {
+        res.status(200).json({ message: "Data inserted successfully" });
       }
     }
   );
 });
-
 app.get("/", (req, res) => {});
 
 app.listen(port, () =>

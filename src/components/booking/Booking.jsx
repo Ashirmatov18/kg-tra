@@ -15,6 +15,8 @@ import {
   useProSidebar,
   sidebarClasses,
 } from "react-pro-sidebar";
+import "lightbox.js-react/dist/index.css";
+import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
 
 export default function Booking() {
   const [state, setState] = useState([]);
@@ -27,7 +29,9 @@ export default function Booking() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  useEffect(() => {
+    initLightboxJS("Insert License key", "Insert plan type here");
+  });
   const carDetail = (item) => {
     setDetail([item]);
     handleOpen();
@@ -119,6 +123,8 @@ export default function Booking() {
     boxShadow: 24,
     p: 4,
   };
+
+  console.log(detail);
   return (
     <>
       <div className={styles.booking_bg}>
@@ -187,7 +193,7 @@ export default function Booking() {
                   <div className={styles.pricing_info}>
                     <p>Цена: {item.Price}</p>
                     <p>Модель: {item.Manufacturer}</p>
-                    <button onClick={() => carDetail(item)}>Открыть</button>
+                    <button onClick={() => carDetail(item)}>Подробнее</button>
                   </div>
                 </div>
               </div>
@@ -203,8 +209,34 @@ export default function Booking() {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Box sx={style} style={{ color: "red" }}>
-                {pop.Id}
+              <Box sx={style} style={{ color: "#000" }}>
+                <SlideshowLightbox className="container grid grid-cols-3 gap-2 mx-auto">
+                  <img
+                    style={{ width: "300px" }}
+                    className="w-full rounded"
+                    src={`https://ci.encar.com${pop.Photos[0].location}`}
+                  />
+                  <img
+                    style={{ width: "300px" }}
+                    className="w-full rounded"
+                    src={`https://ci.encar.com${pop.Photos[1].location}`}
+                  />
+                  <img
+                    style={{ width: "300px" }}
+                    className="w-full rounded"
+                    src={`https://ci.encar.com${pop.Photos[2].location}`}
+                  />
+                  <img
+                    style={{ width: "300px" }}
+                    className="w-full rounded"
+                    src={`https://ci.encar.com${pop.Photos[3].location}`}
+                  />
+                </SlideshowLightbox>
+                <h2>Модель: {pop.Model}</h2>
+                <h3>Год: {pop.FormYear}</h3>
+                <h3>Цена: {pop.Price}</h3>
+                <h3>Пробег: {pop.Mileage}</h3>
+                <h3>Тип топлива: {pop.Manufacturer}</h3>
               </Box>
             </Modal>
           ))}

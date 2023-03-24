@@ -33,6 +33,7 @@ import {
   useProSidebar,
   sidebarClasses,
 } from "react-pro-sidebar";
+import { AllCar } from "../Container/footer/FooterSvg";
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#fdce08",
@@ -122,6 +123,27 @@ export default function Catalog() {
         <h1>КАТАЛОГ</h1>
       </div>
       <main className={styles.main} id={styles.main_catalog}>
+        <nav className={styles.nav}>
+          <ul>
+            <li onClick={() => getUsers()}>
+              <div className={styles.all_car}></div>
+            </li>
+            <li>
+              <div className={styles.img_lexus}></div>
+            </li>
+            <li>
+              <div className={styles.benz_car}></div>
+            </li>
+            <li onClick={() => filterItem("asdsa")}>
+              <div className={styles.img_bmw}></div>
+              <div className={styles.mail_icon}>
+                <div className={styles.mail_base}>
+                  <div className={styles.mail_top}></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
         {/* <Box sx={{ display: "flex" }}>
           <CssBaseline />
           <Drawer

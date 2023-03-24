@@ -16,7 +16,7 @@ const initState = {
   color: "",
   price: "",
   driving: "",
-  image: "",
+  image: null,
   mainimage: "",
   secondimage: "",
   thirdimage: "",
@@ -45,7 +45,7 @@ const priceCar = [
 export default function AddEdit(props) {
   const router = useRouter();
   const { id } = router.query;
-  // const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/get/${id}`)
@@ -102,11 +102,6 @@ export default function AddEdit(props) {
       alert("error");
     } else {
       if (!id) {
-        // const form = new FormData();
-        // form.append("screenshot", file);
-        // for (const key in inState) {
-        //   form.append(key, inState[key]);
-        // }
         axios
           .post("http://localhost:5000/api/post", {
             name,
@@ -130,7 +125,7 @@ export default function AddEdit(props) {
               color: "",
               price: "",
               driving: "",
-              image: "",
+              image: null,
               mainimage: "",
               secondimage: "",
               thirdimage: "",
@@ -139,7 +134,6 @@ export default function AddEdit(props) {
               description: "",
               equipment: "",
             });
-            setFile(null);
           })
           .catch((err) => {
             // toast.error(err.response.data);
@@ -170,7 +164,7 @@ export default function AddEdit(props) {
               color: "",
               price: "",
               driving: "",
-              image: "",
+              image: null,
               mainimage: "",
               secondimage: "",
               thirdimage: "",
@@ -204,13 +198,14 @@ export default function AddEdit(props) {
   // };
 
   const handleChangeInput = (e) => {
-    let { name, value } = e.target;
-    setinState({ ...inState, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-    console.log(file);
+    // let { name, value } = e.target;
+    // setinState({ ...inState, [name]: value });
+    const name = e.target.name;
+    const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+    setinState((prevState) => ({
+      ...inState,
+      [name]: value,
+    }));
   };
 
   console.log(inState);
@@ -239,33 +234,61 @@ export default function AddEdit(props) {
             type="text"
           />
           <div className={styles.cut}></div>
-          <label forHtml="firstname" className={styles.placeholder}>
+          <label forhtml="firstname" className={styles.placeholder}>
             Модель машины
           </label>
         </div>
-        {/* 
-      <div className={`${styles.input_container} ${styles.ic2}`}>
-      <input
-      name="driving"
-      id="driving"
-      onChange={handleChangeInput}
-      defaultValue={driving || ""}
-      className={styles.input}
-      type="text"
-      />
-      <div className={styles.cut}></div>
-      <label forHtml="lastname" className={styles.placeholder}>
-      Привод
-        </label>
-      </div> */}
 
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <div className={`${styles.input_container} ${styles.ic2}`}>
+          <input
+            name="driving"
+            id="driving"
+            onChange={handleChangeInput}
+            defaultValue={driving || ""}
+            className={styles.input}
+            type="text"
+          />
+          <div className={styles.cut}></div>
+          <label forHtml="lastname" className={styles.placeholder}>
+            Привод
+          </label>
+        </div>
+
+        <div className={`${styles.input_container} ${styles.ic2}`}>
+          <input
+            name="equipment"
+            id="equipment"
+            onChange={handleChangeInput}
+            defaultValue={equipment || ""}
+            className={styles.input}
+            type="text"
+          />
+          <div className={styles.cut}></div>
+          <label forHtml="lastname" className={styles.placeholder}>
+            Комлектация
+          </label>
+        </div>
+
+        <div className={`${styles.input_container} ${styles.ic2}`}>
+          <input
+            name="country"
+            id="country"
+            onChange={handleChangeInput}
+            defaultValue={country || ""}
+            className={styles.input}
+            type="text"
+          />
+          <div className={styles.cut}></div>
+          <label forHtml="lastname" className={styles.placeholder}>
+            страна
+          </label>
+        </div>
+        {/* <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="driving">Привод</InputLabel>
           <Select
             labelId="driving"
             id="driving"
             name="driving"
-            // value={driving || ""}
             value={driving ?? ""}
             onChange={handleChangeInput}
             label="Привод"
@@ -283,7 +306,6 @@ export default function AddEdit(props) {
             labelId="equipment"
             id="equipment"
             name="equipment"
-            // value={driving || ""}
             value={equipment ?? ""}
             onChange={handleChangeInput}
             label="Комлектация"
@@ -300,7 +322,6 @@ export default function AddEdit(props) {
             labelId="country"
             id="country"
             name="country"
-            // value={driving || ""}
             value={country ?? ""}
             onChange={handleChangeInput}
             label="Страна"
@@ -309,7 +330,7 @@ export default function AddEdit(props) {
             <MenuItem value={"Кыргызстан"}>Кыргызстан</MenuItem>
             <MenuItem value={"Россия"}>Россия</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl> */}
         <div className={`${styles.input_container} ${styles.ic2}`}>
           <input
             type="number"
@@ -377,9 +398,9 @@ export default function AddEdit(props) {
             // placeholder="Вставить картинку"
             // onChange={handleFileChange}
             onChange={handleChangeInput}
-            defaultValue={image || ""}
+            // defaultValue={image || null}
             className={styles.input}
-            type="text"
+            type="file"
           />
           <div className={`${styles.cut} ${styles.cut_short}`}></div>
           <label for="COMPLECT" className={styles.placeholder}>

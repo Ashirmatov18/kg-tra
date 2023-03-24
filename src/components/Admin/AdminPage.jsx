@@ -115,10 +115,12 @@ export default function AdminPage() {
           paginateData.map((item, index) => {
             return (
               <>
-                <div className={styles.card_main}>
-                  <div key={index} className={styles.car_card}>
+                <div key={index} className={styles.card_main}>
+                  <div className={styles.car_card}>
                     <div
-                      style={{ backgroundImage: `url(${item.image})` }}
+                      style={{
+                        backgroundImage: `url(${item.image})`,
+                      }}
                       className={styles.card_img}
                     ></div>
                     <div style={{ padding: "10px" }}>
