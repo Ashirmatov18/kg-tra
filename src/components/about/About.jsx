@@ -5,8 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MainLayout from "../MainLayout";
-import Head from "@/app/head";
-
+// import Head from "@/app/head";
+import Head from "../../app/head";
 export default function About() {
   // const [age, setAge] = React.useState("");
   const [year, setYear] = useState("less-than-3y");

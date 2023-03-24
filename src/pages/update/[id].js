@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AddEdit from "@/components/Admin/AddEdit";
+import AddEdit from "../../components/Admin/AddEdit";
 import { toast } from "react-toastify";
 
 const update = ({ item }) => {

@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 import { alpha, styled } from "@mui/material/styles";
 import Footer from "../Container/footer/Footer";
-import Head from "@/app/head";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";

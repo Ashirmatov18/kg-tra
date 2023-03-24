@@ -1,6 +1,18 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/addcar": "pages/addcar.html",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/adminadd": "pages/adminadd.html",
+  "/booking": "pages/booking.html",
+  "/catalog": "pages/catalog.html",
+  "/api/hello": "pages/api/hello.js",
+  "/connectus": "pages/connectus.html",
+  "/contacts": "pages/contacts.html",
+  "/": "pages/index.html",
+  "/login": "pages/login.html",
+  "/aboutus": "pages/aboutus.html",
+  "/update/[id]": "pages/update/[id].js",
+  "/catalogdetail/[id]": "pages/catalogdetail/[id].js",
+  "/404": "pages/404.html"
 }

@@ -1,5 +1,5 @@
-import Footer from "@/components/Container/footer/Footer";
-import Header from "@/components/Container/Header/Header";
+import Header from "../../components/Container/Header/Header";
+import Footer from "../../components/Container/footer/Footer";
 import Link from "next/link";
 import React from "react";
 import styles from "../../../public/styles/Detail.module.css";
