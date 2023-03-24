@@ -29,9 +29,3 @@ module.exports = {
     path: "",
   },
 };
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};

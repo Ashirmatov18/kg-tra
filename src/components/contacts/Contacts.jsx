@@ -165,6 +165,10 @@ export default function Contacts() {
         buildLocationList(stores);
         addMarkers();
       });
+
+      // const mySource = Map.getSource("load");
+
+      // Map.removeSource("load"); // remove
     }
   });
 
