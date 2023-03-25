@@ -512,14 +512,38 @@ a:hover {
   top: 10px;
 }
 
+.test_h {
+  color: red;
+  font-size: 150px;
+}
+
+@media (max-width: 760px) {
+  #owl-carousel-products
+    #owl-carousel-ul
+    #featuredProducts
+    .productListing
+    .image
+    img {
+    height: 100px;
+  }
+}
+@media (max-width: 660px) {
+  #owl-carousel-products #owl-carousel-ul {
+    margin-bottom: 50px;
+  }
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
-
-.test_h {
-  color: red;
-  font-size: 150px;
+  #owl-carousel-products
+    #owl-carousel-ul
+    #featuredProducts
+    .productListing
+    .image
+    img {
+    width: 100%;
+  }
 }

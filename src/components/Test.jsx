@@ -99,7 +99,7 @@ export default function Test() {
         items: 1,
       },
       400: {
-        items: 1,
+        items: 2,
       },
       600: {
         items: 2,
@@ -390,6 +390,7 @@ export default function Test() {
           textTransform: "uppercase",
           color: "#142c56",
         }}
+        className={styles.about_main_title}
       >
         О Нас
       </h1>
@@ -425,6 +426,7 @@ export default function Test() {
           textTransform: "uppercase",
           color: "#142c56",
         }}
+        className={styles.catalog_title}
       >
         Наш Каталог
       </h1>
@@ -481,6 +483,7 @@ export default function Test() {
           textTransform: "uppercase",
           color: "#142c56",
         }}
+        className={styles.calculator_title_main}
       >
         Высчитать цену
       </h1>

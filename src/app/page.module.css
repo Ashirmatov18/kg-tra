@@ -4,3 +4,9 @@
   background-color: #fff !important;
   color: #000;
 }
+
+@media (max-width: 530px) {
+  .main {
+    padding: 4rem;
+  }
+}
