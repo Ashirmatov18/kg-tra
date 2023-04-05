@@ -3,8 +3,8 @@
 import Link from "next/link";
 import React from "react";
 import styles from "../../../public/styles/ConnectUs.module.css";
-import axios from "axios";
-import { Cheerio } from "cheerio";
+
+
 
 export default function ConnectUs() {
   return (

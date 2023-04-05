@@ -8,24 +8,31 @@ import path from "path";
 import crypto from "crypto";
 
 const app = express();
-const port = 5000;
-// const mysql = require("mysql2");
+// const port = 8000;
 const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "Darigul250268",
-  database: "car_data",
+  // host: "localhost",
+  // user: "root",
+  // password: "Darigul250268",
+  // database: "car_data",
+  host: process.env.DB_HOST, 
+  user: process.env.DB_USERNAME, 
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DBNAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
+const PORT = 3306
 
-// app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 app.use(fileUpload());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.static(path.resolve("static")));
-// app.use("/", userRoutes);
 
 app.get("/api/get", (req, res) => {
+  console.log('get api')
+
   const sqlGet = "SELECT * FROM car_db";
   db.query(sqlGet, (error, result) => {
     res.send(result);
@@ -190,6 +197,8 @@ app.post("/api/post", (req, res) => {
   let fileName = crypto.randomUUID() + "." + image.mimetype.split("/")[1];
 
   image.mv(path.resolve("static", fileName));
+
+
   const sqlInsert =
     "INSERT INTO car_db (name, year, color, price, driving, image, mainimage, secondimage, thirdimage, country, mileage, description, equipment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   db.query(
@@ -219,8 +228,10 @@ app.post("/api/post", (req, res) => {
     }
   );
 });
-app.get("/", (req, res) => {});
+app.get("/", (req, res) => {
+  console.log('hi')
+});
 
-app.listen(port, () =>
-  console.log(`server is listening on port: http://localhost:${port}`)
+app.listen(PORT, () =>
+  console.log(`server is listening on port: http://localhost:${PORT}`)
 );

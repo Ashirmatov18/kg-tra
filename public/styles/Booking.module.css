@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   /* margin: 0 auto; */
   margin-top: 800px !important;
-  width: 70%;
+  width: 80%;
   float: right;
 }
 
@@ -52,10 +52,11 @@
   margin-bottom: 15px;
 }
 
-.product_image_name h1 {
-  font-size: 20px;
+.product_image_name h2 {
+  font-size: 15px;
   font-weight: 600;
   color: red;
+  text-align: center;
 }
 
 .product_card:nth-child(1) h1 {
@@ -104,4 +105,62 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 15px;
+}
+
+.sidebar_mobile{
+  display: none;
+}
+
+
+@media(max-width:1000px){
+  .encar_product {
+    width: 100%;
+    margin-top: 40px !important;
+
+  }
+  .sidebar_main{
+    display: none;
+  }
+  .sidebar_mobile{
+    display: block;
+    margin-top: 765px;
+  }
+
+  .sidebar{
+    width: 100%;
+  }
+
+  .sidebar_mobile aside{
+    width: 100% !important;
+  }
+}
+
+
+
+@media only screen and (max-width: 610px) {
+  .booking_bg h1 {
+    font-size: 120px;
+    line-height: inherit;
+  }
+}
+
+
+
+@media only screen and (max-width: 460px) {
+  .booking_bg h1 {
+    font-size: 70px;
+    margin-top: 250px;
+  }
+  .sidebar{
+    width: 100% !important;
+    margin-top: 80px !important;
+  }
+  .encar_product{
+    width: 100%;
+  }
+  .product_card{
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+  }
 }

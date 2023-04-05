@@ -147,3 +147,40 @@
 .submit:active {
   background-color: #06b;
 }
+
+
+@media (max-width: 1100px){
+  .main_bg_image h1{
+    font-size: 45px;
+  }
+}
+
+
+@media (max-width: 650px){
+  .form{
+    width: 90%;
+    
+  }
+}
+
+
+@media (max-width: 470px){
+  .main_bg_image h1{
+    font-size: 35px;
+  }
+  .cut{
+    width: 60%;
+  }
+  .cut_short{
+    width: 60%;
+  }
+}
+
+
+
+@media (max-width: 380px){
+  .main_bg_image h1{
+    line-height: 0;
+    margin-top: 300px; 
+  }
+}

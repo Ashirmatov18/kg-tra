@@ -182,7 +182,7 @@ export default function About() {
                       <h2>ЛУЧШИЕ ЦЕНЫ</h2>
                     </div>
                   </div>
-                  <h1 style={{ marginTop: "170px" }}>Наши преимущества</h1>
+                  <h1 style={{ marginTop: "170px" }} className={styles.adv_title}>Наши преимущества</h1>
                   <div className={styles.tech_first}>
                     <div className={styles.picture_info}>
                       <div className={styles.fourth_tech_pic}></div>

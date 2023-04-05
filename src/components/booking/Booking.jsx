@@ -147,7 +147,7 @@ export default function Booking() {
             }}
             className={styles.sidebar}
           >
-            <Menu>
+            <Menu className={styles.menu_side}>
               <SubMenu label="Charts">
                 <MenuItem> Pie charts </MenuItem>
                 <MenuItem> Line charts </MenuItem>
@@ -172,6 +172,38 @@ export default function Booking() {
           </Sidebar>{" "}
         </div>
 
+        <div className={styles.sidebar_mobile}>
+        <Sidebar
+            rootStyles={{
+              [`.${sidebarClasses.container}`]: {
+                color: "#142c56",
+              },
+            }}
+            className={styles.mobile_side}
+          >
+            <Menu>
+              <SubMenu label="Charts">
+              <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
+              <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
+              <MenuItem onClick={() => filterItem("볼보")}> Volvo </MenuItem>
+              <MenuItem onClick={() => filterItem("벤츠")}> Mercedes </MenuItem>
+              <MenuItem onClick={() => filterItem("아우디")}> Audi </MenuItem>
+              <MenuItem onClick={() => filterItem("미니")}> Mini </MenuItem>
+              <MenuItem onClick={() => filterItem("포르쉐")}> Porshe </MenuItem>
+              <MenuItem onClick={() => filterItem("포르쉐")}> Porshe </MenuItem>
+              <MenuItem onClick={() => filterItem("랜드로버")}>
+                {" "}
+                Land Rover{" "}
+              </MenuItem>
+              <MenuItem onClick={() => filterItem("폭스바겐")}>
+                {" "}
+                Wolswagen{" "}
+              </MenuItem>
+              </SubMenu>
+            </Menu>
+          </Sidebar>{" "}
+        </div>
+
         <div className={styles.encar_product}>
           {!!state && state.length ? (
             filteredCars.map((item, index) => (
@@ -189,7 +221,7 @@ export default function Booking() {
                     }}
                     className={styles.img_car}
                   ></div>
-                  <h1>{item.Model}</h1>
+                  <h2>{item.Model}</h2>
                 </div>
                 <div key={index} className={styles.product_info}>
                   {/* <h2>

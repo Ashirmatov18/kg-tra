@@ -11,28 +11,9 @@ import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 import { alpha, styled } from "@mui/material/styles";
 import Footer from "../Container/footer/Footer";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { ProSidebarProvider } from "react-pro-sidebar";
-import {
-  Sidebar,
-  Menu,
-  MenuItem,
-  SubMenu,
-  useProSidebar,
-  sidebarClasses,
-} from "react-pro-sidebar";
-import { AllCar } from "../Container/footer/FooterSvg";
+
+
+
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#fdce08",
@@ -67,7 +48,7 @@ export default function Catalog() {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/api/get");
+    const response = await axios.get("http://localhost:8000/api/get");
     if (response.status === 200) {
       setData(response.data);
     }
@@ -82,7 +63,7 @@ export default function Catalog() {
     // }
     // setOpen(false);
     if (window.confirm("Вы хотите удалить?")) {
-      axios.delete(`http://localhost:5000/api/remove/${id}`);
+      axios.delete(`http://localhost:8000/api/remove/${id}`);
       toast.success("удален успешно");
       setTimeout(() => getUsers(), 500);
     }
@@ -99,7 +80,7 @@ export default function Catalog() {
     });
     setData(chooseItem);
   };
-
+console.log(data)
   const fromLowerToHigher = () => {
     const sorted = searchItem.sort((a, b) => a.price - b.price);
     setData(sorted);
