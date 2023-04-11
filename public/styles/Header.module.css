@@ -202,6 +202,7 @@
 }
 .wrapper ul li a:hover {
   color: #1a73e8;
+  list-style-type: circle;
 }
 .inp[type="checkbox"] {
   display: none;

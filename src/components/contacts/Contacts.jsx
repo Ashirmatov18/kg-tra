@@ -1,62 +1,3 @@
-// import React from "react";
-// import styles from "../../styles/Contact.module.css";
-// import Footer from "../Container/footer/Footer";
-// import Link from "next/link";
-
-// export default function Contacts() {
-//   return (
-//     <>
-//       <div className={styles.contacts_bg}>
-//         <h1>Контакты</h1>
-//         <div className={styles.contacts_but}>
-//           <button>Свяжитесь с нами</button>
-//         </div>
-//       </div>
-
-//       <div className={styles.search} style={{ marginTop: "930px" }}>
-//         <h1>Как найти нас</h1>
-//         <div className={styles.map_info}>
-//           <div className={styles.map}></div>
-//           <div className={styles.address_info}>
-//             <h2>Адрес</h2>
-//             <h4>Абдумомунова, 221, Первомайский район, Бишкек, 720033</h4>
-
-//             <h2>Телефон</h2>
-//             <h4>+996 507 70 35 16</h4>
-//             <h4>+86 155 2128 2836</h4>
-
-//             <h2>E-mail</h2>
-//             <h4>nurislam.ashirmatov@ecosolutions.group</h4>
-//             <h4>malika.saparova@ecosolutions.group</h4>
-//           </div>
-//         </div>
-//       </div>
-//       <h1 className={styles.connection}>Свяжитесь с нами</h1>
-//       {/* </MainLayout> */}
-//       <div className={styles.connect_us}>
-//         <div className={styles.message}>
-//           <h1>Оставить сообщение</h1>
-//           <div className={styles.input_group}>
-//             <input type="text" placeholder="Ф.И.О" />
-//             <input type="text" placeholder="E-mail" />
-//             <select className={styles.select_name} placeholder="Выбрать тему">
-//               <option value="volvo">Вид</option>
-//               <option value="saab">!</option>
-//               <option value="opel">2</option>
-//             </select>
-//             <input
-//               className={styles.input_message}
-//               type="text"
-//               placeholder="Ваше сообщение"
-//             />
-//           </div>
-//           <button>Оставить сообщение</button>
-//         </div>
-//         <Footer id={styles.footer_contact} />
-//       </div>
-//     </>
-//   );
-// }
 
 import Head from "next/head";
 import styles from "../../../public/styles/Contact.module.css";
@@ -80,30 +21,30 @@ export default function Contacts() {
         },
         properties: {
           phoneFormatted: "(202) 234-7336",
-          phone: "2022347336",
-          address: "Manas",
+          phone: "+996 755 081 000",
+          address: "Бишкек, ул. Ч.Валиханова 4а/6",
           city: "Bishkek",
           country: "Kyrgyzstan",
           crossStreet: "at 15th St NW",
           postalCode: "20005",
-          state: "D.C.",
+          state: "Bishkek",
         },
       },
       {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [-77.10853099823, 38.880100922392],
+          coordinates: [126.651152,37.417813 ],
         },
         properties: {
           phoneFormatted: "(703) 522-2016",
-          phone: "7035222016",
-          address: "4075 Wilson Blvd",
-          city: "Arlington",
-          country: "United States",
+          phone: "+82 10 5553 9928",
+          address: "(Songdo Plaza 305) 2, Ingwon-ro, Yeonsu-gu, Incheon, Republic of Korea",
+          city: "Seoul",
+          country: "Korea",
           crossStreet: "at N Randolph St.",
           postalCode: "22203",
-          state: "VA",
+          state: "Seoul",
         },
       },
 
