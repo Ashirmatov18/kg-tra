@@ -56,8 +56,8 @@ export default function AddTest() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3306/api/post",
-        // "https://node-traiding.vercel.app/api/post",
+        // "http://localhost:3306/api/post",
+        "https://node-traiding.vercel.app/api/post",
         formData,
         {
           headers: {

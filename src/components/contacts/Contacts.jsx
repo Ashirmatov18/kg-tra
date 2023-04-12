@@ -20,7 +20,7 @@ export default function Contacts() {
           coordinates: [74.586269, 42.8904163],
         },
         properties: {
-          phoneFormatted: "(202) 234-7336",
+          phoneFormatted: "+996 755 081 000",
           phone: "+996 755 081 000",
           address: "Бишкек, ул. Ч.Валиханова 4а/6",
           city: "Bishkek",
@@ -37,7 +37,7 @@ export default function Contacts() {
           coordinates: [126.651152,37.417813 ],
         },
         properties: {
-          phoneFormatted: "(703) 522-2016",
+          phoneFormatted: "+82 10 5553 9928",
           phone: "+82 10 5553 9928",
           address: "(Songdo Plaza 305) 2, Ingwon-ro, Yeonsu-gu, Incheon, Republic of Korea",
           city: "Seoul",
@@ -45,40 +45,6 @@ export default function Contacts() {
           crossStreet: "at N Randolph St.",
           postalCode: "22203",
           state: "Seoul",
-        },
-      },
-
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [-75.20121216774, 39.954030175164],
-        },
-        properties: {
-          phoneFormatted: "(215) 386-1365",
-          phone: "2153861365",
-          address: "3925 Walnut St",
-          city: "Philadelphia",
-          country: "United States",
-          postalCode: "19104",
-          state: "PA",
-        },
-      },
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [-77.043959498405, 38.903883387232],
-        },
-        properties: {
-          phoneFormatted: "(202) 331-3355",
-          phone: "2023313355",
-          address: "1901 L St. NW",
-          city: "Washington DC",
-          country: "United States",
-          crossStreet: "at 19th St",
-          postalCode: "20036",
-          state: "D.C.",
         },
       },
     ],
