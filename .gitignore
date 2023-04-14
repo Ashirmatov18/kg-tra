@@ -40,3 +40,5 @@ yarn-error.log*
 /.next/cache
 
 .eslintcache
+
+.next/cache/webpack/client-development/8.pack
