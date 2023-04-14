@@ -546,4 +546,10 @@ a:hover {
     img {
     width: 100%;
   }
+  .listings .item{
+    padding: 10px;
+  }
+  .listings .item .title{
+    font-size: 15px;
+  }
 }
