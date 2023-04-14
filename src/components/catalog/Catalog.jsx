@@ -37,6 +37,7 @@ const drawerWidth = 240;
 
 export default function Catalog() {
   const router = useRouter();
+  const {id} = router.query
 
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
@@ -47,25 +48,17 @@ export default function Catalog() {
     getUsers();
   }, []);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://node-traiding.vercel.app/get/${id}`)
+  //     .then((resp) => setData({ ...resp.data[0] }));
+  // }, [id]);
+
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:8000/api/get");
+    const response = await axios.get("http://localhost:3306/api/get");
+    //https://node-traiding.vercel.app/api/get
     if (response.status === 200) {
       setData(response.data);
-    }
-  };
-
-  const onDelete = (id) => {
-    // const response = await axios.delete(
-    //   `http://localhost:5000/api/remove/${id}`
-    // );
-    // if (response.status === 200) {
-    //   getUsers();
-    // }
-    // setOpen(false);
-    if (window.confirm("Вы хотите удалить?")) {
-      axios.delete(`http://localhost:8000/api/remove/${id}`);
-      toast.success("удален успешно");
-      setTimeout(() => getUsers(), 500);
     }
   };
 
@@ -80,7 +73,8 @@ export default function Catalog() {
     });
     setData(chooseItem);
   };
-console.log(data)
+
+
   const fromLowerToHigher = () => {
     const sorted = searchItem.sort((a, b) => a.price - b.price);
     setData(sorted);
@@ -96,7 +90,6 @@ console.log(data)
   });
 
   const paginateData = paginate(searchItem, currentPage, pageSize);
-  console.log(data);
   return (
     <>
       <div className={styles.contacts_bg}>
@@ -243,7 +236,7 @@ console.log(data)
                           />
                         </a>
                       </ul>
-                      <img src={item.image} className={styles.card_img} />
+                      <img src={`http://localhost:3306/${item.image}`} className={styles.card_img} />
 
                       <div className={styles.card_info}>
                         <h1 className={styles.card_title}>{item.name}</h1>

@@ -234,20 +234,20 @@ export default function Test() {
       );
   };
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/api/get");
+    const response = await axios.get("http://localhost:3306/api/get");
     if (response.status === 200) {
       setState(response.data);
     }
   };
 
   const carItems = state.slice(0, 6).map((item, index) => (
-    <div key={index} className={styles.card}>
+    <div key={item.id} className={styles.card}>
       <ul className={styles.card_menu}>
         <a className={styles.car_menu_item}>
           <img className={styles.card_menu_img} src={item.secondimage} />
         </a>
       </ul>
-      <img src={item.image} className={styles.card_img} />
+      <img src={`http://localhost:3306/${item.image}`} className={styles.card_img} />
 
       <div className={styles.card_info}>
         <h1 className={styles.card_title}>{item.name}</h1>
@@ -261,8 +261,6 @@ export default function Test() {
     </div>
   ));
 
-  console.log(carItems);
-  // const arr = state.map()
 
   return (
     // <MainLayout>
@@ -291,14 +289,14 @@ export default function Test() {
               <div className={styles.main_page_number_img}></div>
               <div>
                 <span>Позвони нам</span>
-                <p>+996550157055</p>
+                <p>+996755081000</p>
               </div>
             </div>
             <div className={styles.main_page_number_first}>
               <div className={styles.main_page_number_img_second}></div>
               <div>
                 <span>Наша почта</span>
-                <p>+996550157055</p>
+                <p>test@gmail.com</p>
               </div>
             </div>
           </div>

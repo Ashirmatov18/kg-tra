@@ -10,6 +10,8 @@ export default function Login() {
     Cookies.set("loggedin", true);
     router.push("/adminadd");
   };
+
+  
   return (
     <div>
       <form onSubmit={(e) => logIn(e)}>

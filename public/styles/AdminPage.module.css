@@ -5,6 +5,27 @@
   color: #000;
 }
 
+.mainpage_button{
+  width: 50%;
+  height: 40px;
+  background-color:red;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.add_button{
+  width: 50%;
+  height: 40px;
+  background-color:#003f06;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 27px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
 .contacts_bg {
   background: url("/images/felipe-simo-kxwKM0_6Of4-unsplash.jpg") no-repeat;
   height: 900px;

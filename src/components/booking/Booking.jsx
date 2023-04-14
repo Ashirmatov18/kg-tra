@@ -59,7 +59,6 @@ export default function Booking() {
       setFetching(true);
     }
   };
-  console.log(state);
   // const getCar = async () => {
   //   const response = await axios.get(api);
   //   if (response.status === 200) {
@@ -148,9 +147,9 @@ export default function Booking() {
             className={styles.sidebar}
           >
             <Menu className={styles.menu_side}>
-              <SubMenu label="Charts">
-                <MenuItem> Pie charts </MenuItem>
-                <MenuItem> Line charts </MenuItem>
+              <SubMenu label="Выберите машину">
+                {/* <MenuItem> Pie charts </MenuItem>
+                <MenuItem> Line charts </MenuItem> */}
               </SubMenu>
               <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
               <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
@@ -182,7 +181,7 @@ export default function Booking() {
             className={styles.mobile_side}
           >
             <Menu>
-              <SubMenu label="Charts">
+              <SubMenu label="Выберите машину">
               <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
               <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
               <MenuItem onClick={() => filterItem("볼보")}> Volvo </MenuItem>

@@ -46,6 +46,8 @@ export default function AddEdit(props) {
   const router = useRouter();
   const { id } = router.query;
   const [img, setImg] = useState(null);
+
+  
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/get/${id}`)

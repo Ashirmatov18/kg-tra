@@ -23,7 +23,6 @@ import Image from "next/image";
 
 export default function AdminPage() {
   const router = useRouter();
-
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +33,8 @@ export default function AdminPage() {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/api/get");
+    // const response = await axios.get("http://localhost:3306/api/get");
+    const response = await axios.get("http://localhost:3306/api/get");
     if (response.status === 200) {
       setData(response.data);
     }
@@ -51,7 +51,7 @@ export default function AdminPage() {
     // }
     // setOpen(false);
     if (window.confirm("Вы хотите удалить?")) {
-      axios.delete(`http://localhost:5000/api/remove/${id}`);
+      axios.delete(`http://localhost:3306/api/remove/${id}`);
       toast.success("удален успешно");
       setTimeout(() => getUsers(), 500);
     }
@@ -63,10 +63,12 @@ export default function AdminPage() {
   };
 
   const filterItem = (categItem) => {
-    const chooseItem = data.filter((curElem) => {
-      return curElem.name === categItem;
-    });
-    setData(chooseItem);
+    if(data){
+      const chooseItem = data.filter((curElem) => {
+        return curElem.name === categItem;
+      });
+      setData(chooseItem);
+    }
   };
 
   const fromLowerToHigher = () => {
@@ -79,16 +81,27 @@ export default function AdminPage() {
     setData(sortToHigh);
   };
 
+  
+
+  if(data){
+    
+  }
   const searchItem = data.filter((car) => {
     return car.name.toLowerCase().includes(value.toLowerCase());
   });
-
+  
   const paginateData = paginate(searchItem, currentPage, pageSize);
+  
 
-  console.log(data);
 
   return (
     <main className={styles.main}>
+      <div className={styles.button_a}>
+      <Link href='/'>
+        <button className={styles.mainpage_button}>Главная</button>
+      </Link>
+      </div>
+
       <div className={styles.button_a}>
         <Link href="/addcar">
           <button className={styles.add_button}>Добавить</button>
@@ -114,15 +127,16 @@ export default function AdminPage() {
         {data &&
           paginateData.map((item, index) => {
             return (
-              <>
-                <div key={index} className={styles.card_main}>
-                  <div className={styles.car_card}>
-                    <div
-                      style={{
-                        backgroundImage: `url(${item.image})`,
-                      }}
+              <div key={index}>
+                <div key={item.id} className={styles.card_main}>
+                  <div className={styles.car_card} key={item.id}>
+                    <img
+                      // style={{
+                      //   backgroundImage: `https://node-traiding.vercel.app/${item.image}`,
+                      // }}
+                      src={`http://localhost:3306/${item.image}`}
                       className={styles.card_img}
-                    ></div>
+                    />
                     <div style={{ padding: "10px" }}>
                       <h1
                         style={{ textAlign: "center", fontSize: "30px" }}
@@ -150,7 +164,7 @@ export default function AdminPage() {
                     </button>
                   </div>
                 </div>
-              </>
+              </div>
             );
           })}
         <PaginationRounded

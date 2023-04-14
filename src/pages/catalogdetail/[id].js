@@ -5,8 +5,11 @@ import React from "react";
 import styles from "../../../public/styles/Detail.module.css";
 // import "../../app/globals.css";
 
-const catalogDetails = ({ item }) => {
+const catalogDetail = ({ item }) => {
   // const items = JSON.stringify(item);
+  console.log(item)
+
+  
   return (
     <>
       <Header />
@@ -15,16 +18,16 @@ const catalogDetails = ({ item }) => {
           <div className={styles.product_imgs}>
             <div className={styles.img_display}>
               <div className={styles.img_showcase}>
-                <img src={item[0].image} alt="shoe5 image" />
-                <img src={item[0].mainImage} alt="shoe 4image" />
-                <img src={item[0].secondImage} alt="shoe 6image" />
-                <img src={item[0].thirdImage} alt="shoe 7image" />
+                <img src={`http://localhost:3306/${item[0].image}`} alt="shoe5 image" />
+                <img src={item[0].mainimage} alt="shoe 4image" />
+                <img src={item[0].secondimage} alt="shoe 6image" />
+                <img src={item[0].thirdimage} alt="shoe 7image" />
               </div>
             </div>
             <div className={styles.img_select}>
               <div className={styles.img_item}>
                 <a href="#" data-id="1">
-                  <img src={item[0].image} alt="shoe image" />
+                  <img src={item[0].mainimage} alt="shoe image" />
                   <div
                     className={styles.image_back}
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -33,7 +36,7 @@ const catalogDetails = ({ item }) => {
               </div>
               <div className={styles.img_item}>
                 <a href="#" data-id="2">
-                  <img src={item[0].image} alt="shoe image" />
+                  <img src={item[0].secondimage} alt="shoe image" />
                   {/* <div
                     className={styles.image_back"
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -42,7 +45,7 @@ const catalogDetails = ({ item }) => {
               </div>
               <div className={styles.img_item}>
                 <a href="#" data-id="3">
-                  <img src={item[0].image} alt="shoe image" />
+                  <img src={item[0].thirdimage} alt="shoe image" />
                   <div
                     className={styles.image_back}
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -78,14 +81,14 @@ const catalogDetails = ({ item }) => {
               <p className={styles.last_price}>
                 Цена: <span>$257.00</span>
               </p>
-              <p className={styles.new_price}>
+              {/* <p className={styles.new_price}>
                 Цена с растаможкой: <span>{item[0].price}(5%)</span>
-              </p>
+              </p> */}
             </div>
 
             <div className={styles.product_detail}>
               <h2>О машине: </h2>
-              <p>{item.description}</p>
+              <p>{item[0].description}</p>
 
               <ul>
                 <li>
@@ -98,7 +101,7 @@ const catalogDetails = ({ item }) => {
                   Комплектация: <span>{item[0].equipment}</span>
                 </li>
                 <li>
-                  Пробег: <span>{item[0].mileage}</span>
+                  Пробег: <span>{item[0].mileage} km</span>
                 </li>
                 <li>
                   Обьем двигателя: <span>{item[0].driving}</span>
@@ -117,7 +120,7 @@ const catalogDetails = ({ item }) => {
 };
 
 export async function getServerSideProps({ params: { id } }) {
-  const res = await fetch(`http://localhost:5000/api/get/${id}`);
+  const res = await fetch(`http://localhost:3306/api/get/${id}`);
   const data = await res.json();
   // console.log(res);
 
@@ -126,4 +129,4 @@ export async function getServerSideProps({ params: { id } }) {
   };
 }
 
-export default catalogDetails;
+export default catalogDetail;

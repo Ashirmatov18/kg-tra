@@ -12,18 +12,16 @@ export default function Footer(props) {
       <div className={styles.first_part}>
         <div className={styles.logo}>
           <div>
-            <span>Абдумомунова, 221 Первомайский район, Бишкек, 720033</span>
+            <span>Бишкек, ул. Ч.Валиханова 4а/6</span>
           </div>
         </div>
 
         <div className={styles.call}>
           <h2>Связаться с нами</h2>
-          <h3>+996 507 70 35 16</h3>
-          <h3>+86 155 2128 2836</h3>
+          <h3>+996 755 081 000</h3>
+          <h3>+82 10 5553 9928</h3>
           <div className={styles.face_whats}>
-            <Link href={"https://www.youtube.com/@kgtrading5495"}>
-              <Facebook />
-            </Link>
+            <Facebook />
             <Whats />
           </div>
         </div>
@@ -33,7 +31,9 @@ export default function Footer(props) {
           <Link href={"https://instagram.com/kg_trading?igshid=YmMyMTA2M2Y="}>
             <Insta />
           </Link>
+          <Link href={"https://www.youtube.com/@kgtrading5495"}>
           <Youtube />
+          </Link>
         </div>
       </div>
 
