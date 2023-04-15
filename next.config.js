@@ -4,7 +4,8 @@
 //   appDir: true,}
 // };
 
-// module.exports = nextConfig;
+// module.exports = nextConfig; 
+// const path = require('path');
 
 
 module.exports = {
@@ -20,17 +21,27 @@ module.exports = {
           name: "[name].[hash].[ext]",
         },
       },
-    });
-
-    return config;
-  },
-
+    })
+return config
+    // webpack: (config, { nextRuntime }) => {
+    //   // Undocumented property of next 12.
+    //   if (nextRuntime !== "nodejs") return config;
+    //   return {
+    //     ...config,
+    //     entry() {
+    //       return config.entry().then((entry) => ({
+    //         ...entry,
+    //         cli: path.resolve(process.cwd(), "lib/cli.ts"),
+    //       }));
+    //     },
+    //   };
+    // },
+  }
   // Add this section to ensure that the `media` folder is properly generated during the build process
-  images: {
-    loader: "imgix",
-    path: "",
-  },
-};
+  // images: {
+  //   loader: "imgix",
+  //   path: "",
+  // }
 
 
-
+}
