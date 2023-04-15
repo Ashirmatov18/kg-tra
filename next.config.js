@@ -5,6 +5,8 @@
 // };
 
 // module.exports = nextConfig;
+
+
 module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push({
@@ -29,5 +31,6 @@ module.exports = {
     path: "",
   },
 };
+
 
 
