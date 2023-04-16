@@ -3,18 +3,16 @@ import styles from "../../../public/styles/Booking.module.css";
 import axios from "axios";
 import Header from "../Container/Header/Header";
 import MainLayout from "../MainLayout";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { ProSidebarProvider } from "react-pro-sidebar";
-import {
-  Sidebar,
-  Menu,
-  MenuItem,
-  SubMenu,
-  useProSidebar,
-  sidebarClasses,
-} from "react-pro-sidebar";
+// import Modal from "@mui/material/Modal";
+// import Box from "@mui/material/Box";
+// import {
+//   Sidebar,
+//   Menu,
+//   MenuItem,
+//   SubMenu,
+//   useProSidebar,
+//   sidebarClasses,
+// } from "react-pro-sidebar";
 import "lightbox.js-react/dist/index.css";
 import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
 import ScrollUpButton from "react-scroll-up-button";
@@ -138,7 +136,7 @@ export default function Booking() {
           className={styles.booking_search}
         />
         <div className={styles.sidebar_main}>
-          <Sidebar
+          {/* <Sidebar
             rootStyles={{
               [`.${sidebarClasses.container}`]: {
                 color: "#142c56",
@@ -148,9 +146,7 @@ export default function Booking() {
           >
             <Menu className={styles.menu_side}>
               <SubMenu label="Выберите машину">
-                {/* <MenuItem> Pie charts </MenuItem>
-                <MenuItem> Line charts </MenuItem> */}
-              </SubMenu>
+\              </SubMenu>
               <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
               <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
               <MenuItem onClick={() => filterItem("볼보")}> Volvo </MenuItem>
@@ -168,11 +164,11 @@ export default function Booking() {
                 Wolswagen{" "}
               </MenuItem>
             </Menu>
-          </Sidebar>{" "}
+          </Sidebar>{" "} */}
         </div>
 
         <div className={styles.sidebar_mobile}>
-        <Sidebar
+        {/* <Sidebar
             rootStyles={{
               [`.${sidebarClasses.container}`]: {
                 color: "#142c56",
@@ -200,7 +196,7 @@ export default function Booking() {
               </MenuItem>
               </SubMenu>
             </Menu>
-          </Sidebar>{" "}
+          </Sidebar>{" "} */}
         </div>
 
         <div className={styles.encar_product}>
@@ -245,7 +241,7 @@ export default function Booking() {
           ) : (
             <></>
           )}
-          {detail.map((pop, index) => (
+          {/* {detail.map((pop, index) => (
             <Modal
               key={index}
               open={open}
@@ -287,7 +283,7 @@ export default function Booking() {
                 <h3>Тип топлива: {pop.Manufacturer}</h3>
               </Box>
             </Modal>
-          ))}
+          ))} */}
         </div>
         <ScrollUpButton />
       </MainLayout>{" "}

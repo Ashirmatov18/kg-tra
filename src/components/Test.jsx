@@ -10,10 +10,10 @@ import Footer from "./Container/footer/Footer";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Link from "next/link";
 import Image from "next/image";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+// import InputLabel from "@material-ui/core/InputLabel/InputLabel";
+// import MenuItem from "@material-ui/core//MenuItem";
+// import FormControl from "@material-ui/core/FormControl";
+// import Select from "@material-ui/core/Select";
 import emailjs from "@emailjs/browser";
 
 export default function Test() {
@@ -488,7 +488,7 @@ export default function Test() {
       <div className={styles.center}>
         <h1>КАЛЬКУЛЯТОР</h1>
         <form>
-          <FormControl
+          {/* <FormControl
             fullWidth
             style={{ width: "100%", marginBottom: "50px" }}
           >
@@ -504,7 +504,7 @@ export default function Test() {
               <MenuItem value="more-than-3y">Больше 3 лет</MenuItem>
               <MenuItem value="more-than-5y">Больше 5 лет</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
           <div className={styles.inputbox}>
             <input
               id="vehicle-capacity"

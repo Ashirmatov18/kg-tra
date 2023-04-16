@@ -2,13 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter, Router } from "next/router";
 import { toast } from "react-toastify";
-import { useContext } from "react";
 import styles from "../../../public/styles/ConnectUs.module.css";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import FormData from "form-data";
 
 const initState = {
   name: "",

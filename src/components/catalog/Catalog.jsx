@@ -8,32 +8,31 @@ import PaginationRounded from "../pagination/Pagination";
 import { paginate } from "../pagination/paginate";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import TextField from "@mui/material/TextField";
-import { alpha, styled } from "@mui/material/styles";
+// import { styled } from "@material-ui/core/styles/styled";
 import Footer from "../Container/footer/Footer";
 
 
 
-const CssTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    color: "#fdce08",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#142c56",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "red",
-    },
-    "&:hover fieldset": {
-      borderColor: "yellow",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "green",
-    },
-  },
-});
-const drawerWidth = 240;
+// const CssTextField = styled(TextField)({
+//   "& label.Mui-focused": {
+//     color: "#fdce08",
+//   },
+//   "& .MuiInput-underline:after": {
+//     borderBottomColor: "#142c56",
+//   },
+//   "& .MuiOutlinedInput-root": {
+//     "& fieldset": {
+//       borderColor: "red",
+//     },
+//     "&:hover fieldset": {
+//       borderColor: "yellow",
+//     },
+//     "&.Mui-focused fieldset": {
+//       borderColor: "green",
+//     },
+//   },
+// });
+// const drawerWidth = 240;
 
 export default function Catalog() {
   const router = useRouter();
@@ -157,13 +156,13 @@ export default function Catalog() {
 
             <Typography paragraph> */}
         <div className={styles.searchbar}>
-          <CssTextField
+          {/* <CssTextField
             id="standard-basic"
             label="ПОИСК"
             variant="standard"
             onChange={(e) => setValue(e.target.value)}
             className={styles.searchbar}
-          />
+          /> */}
         </div>
         <div className={styles.button_group}>
           <button

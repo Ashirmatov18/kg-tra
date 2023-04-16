@@ -9,6 +9,11 @@
 
 
 module.exports = {
+  runtime: 'edge', // for Edge API Routes only
+  unstable_allowDynamic: [
+    '/node_modules/@mui/utils/esm/ponyfillGlobal.js', // allows a single file
+    // '/node_modules/function-bind/**', // use a glob to allow anything in the function-bind 3rd party module
+  ],
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,

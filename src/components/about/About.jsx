@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import styles from "../../../public/styles/About.module.css";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import MainLayout from "../MainLayout";
 // import Head from "@/app/head";
 import Head from "../../app/head";
