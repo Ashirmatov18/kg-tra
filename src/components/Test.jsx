@@ -15,6 +15,8 @@ import Image from "next/image";
 // import FormControl from "@material-ui/core/FormControl";
 // import Select from "@material-ui/core/Select";
 import emailjs from "@emailjs/browser";
+import { Dropdown,Space,Menu } from "antd";
+
 
 export default function Test() {
   const [state, setState] = useState([]);
@@ -75,8 +77,27 @@ export default function Test() {
     },
   ];
 
-  var $ = require("jquery");
+  const dropItems = [
+    {
+      key: "1",
+      label: 'hi'
+    },
+    {
+      key: "2",
+      label: 'hi'      
+    },
+    {
+      key: "3",
+      label: 'hi'
+    },
+    {
+      key: "4",
+      label: "a danger item"
+    }
+  ];
+
   if (typeof window !== "undefined") {
+    var $ = require("jquery");
     window.$ = window.jQuery = require("jquery");
   }
 
@@ -262,6 +283,11 @@ export default function Test() {
   ));
 
 
+
+  
+  
+
+
   return (
     // <MainLayout>
     <div>
@@ -428,45 +454,7 @@ export default function Test() {
       >
         Наш Каталог
       </h1>
-      <div className={styles.card_block}>{carItems}</div>
-      {/* <div className={styles.car_storage}>
-        <div className={styles.car_card}>
-          <div className={styles.car_card_img}></div>
-          <h3 className={styles.car_card_title}>Range Rover</h3>
-          <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
-        </div>
-
-        <div className={styles.car_card}>
-          <div className={styles.car_card_img}></div>
-          <h3 className={styles.car_card_title}>Range Rover</h3>
-          <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
-        </div>
-
-        <div className={styles.car_card}>
-          <div className={styles.car_card_img}></div>
-          <h3 className={styles.car_card_title}>Range Rover</h3>
-          <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
-        </div>
-
-        <div className={styles.car_card}>
-          <div className={styles.car_card_img}></div>
-          <h3 className={styles.car_card_title}>Range Rover</h3>
-          <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
-        </div>
-
-        <div className={styles.car_card}>
-          <div className={styles.car_card_img}></div>
-          <h3 className={styles.car_card_title}>Range Rover</h3>
-          <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
-        </div>
-
-        <div className={styles.car_card}>
-          <div className={styles.car_card_img}></div>
-          <h3 className={styles.car_card_title}>Range Rover</h3>
-          <span className={styles.car_card_price}>ЦЕНА : 11500$</span>
-        </div>
-      </div> */}
-      <div className={styles.button_container}>
+      <div className={styles.card_block}>{carItems}</div>      <div className={styles.button_container}>
         <button className={styles.storage_button}>
           <Link href="/catalog">Перейти ко всем</Link>
         </button>
@@ -505,6 +493,14 @@ export default function Test() {
               <MenuItem value="more-than-5y">Больше 5 лет</MenuItem>
             </Select>
           </FormControl> */}
+
+          <div className={styles.box_drop}>
+          <select value={year} onChange={handleYearChange}>
+             <option value="less-than-3y">Меньше 3х лет</option>
+             <option value="more-than-3y">Больше 3 лет</option>
+             <option value="more-than-5y">Больше 5 лет</option>
+          </select>
+          </div>
           <div className={styles.inputbox}>
             <input
               id="vehicle-capacity"
@@ -522,7 +518,6 @@ export default function Test() {
           {!!year && year === "less-than-3y" ? (
             <>
               <div className={styles.inputbox}>
-                {/* <label htmlFor="vehicle-cost">Цена в евро:</label> */}
                 <input
                   id="vehicle-cost"
                   type="number"
@@ -557,23 +552,6 @@ export default function Test() {
       <div className={styles.connect_us}>
         <div className={styles.message}>
           <h1>Оставить сообщение</h1>
-          {/* <form ref={form} className={styles.input_group} onSubmit={sendEmail}>
-            <label>Ф.И.О</label>
-            <input type="text" name="user_name" />
-            <label>Ф.И.О</label>
-            <input type="email" name="user_email" />
-            <input
-              className={styles.input_message}
-              type="text"
-              placeholder="Ваше сообщение"
-              name="message"
-            />
-            <input
-              type="submit"
-              placeholder="Оставить сообщение"
-              value="Send"
-            />
-          </form> */}{" "}
           <form ref={form} onSubmit={sendEmail}>
             <input
               type="text"

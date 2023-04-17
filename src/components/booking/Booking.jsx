@@ -16,6 +16,8 @@ import MainLayout from "../MainLayout";
 import "lightbox.js-react/dist/index.css";
 import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
 import ScrollUpButton from "react-scroll-up-button";
+import { Layout, Menu, theme, Modal } from "antd";
+const { Sider, Content } = Layout;
 
 export default function Booking() {
   const [state, setState] = useState([]);
@@ -28,6 +30,13 @@ export default function Booking() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [collapsed, setCollapsed] = useState(false);
+  const {
+    token: { colorBgContainer }
+  } = theme.useToken();
+
+
   useEffect(() => {
     initLightboxJS("Insert License key", "Insert plan type here");
   });
@@ -35,7 +44,6 @@ export default function Booking() {
     setDetail([item]);
     handleOpen();
   };
-  // const [filterState, setFilterState] = useState("");
   // useEffect(() => {
   //   getEncarCar().then((data) => setState({ data }));
   // }, []);
@@ -46,7 +54,6 @@ export default function Booking() {
   // const api = `http://api.encar.com/search/car/list/general?count=true&q=(And.Hidden.N._.CarType.Y._.Simple.keyword(1234).)&inav=%7C7C${currentPage}%7C10`;
 
   const api = `https://api.encar.com/search/car/list/premium?count=true&q=(And.Hidden.N.${search})&sr=%7CModifiedDate%7C${currentPage}%7C10`;
-  // const api = `https://api.encar.com/search/car/list/premium?count=true&q=(And.Hidden.N._.(C.CarType.N._.Manufacturer.볼보.))&sr=%7CModifiedDate%7C${currentPage}%7C10`;
   const scrollHandler = (e) => {
     if (
       e.target.documentElement.scrollHeight -
@@ -68,12 +75,7 @@ export default function Booking() {
     const chooseItem = state.filter((curElem) => {
       return curElem.Manufacturer === categItem;
     });
-    // search = setState(`(C.CarType.N._.Manufacturer.${chooseItem}.)`);
     setState(chooseItem);
-
-    // chooseItem.map((item)=>{
-
-    // })
     if (categItem === "") {
       setSearch("");
     } else {
@@ -136,6 +138,51 @@ export default function Booking() {
           className={styles.booking_search}
         />
         <div className={styles.sidebar_main}>
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo" />
+        <Menu
+          theme="light"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={[
+            {
+              key: "all",
+              label: "ВСЕ МАШИНЫ",
+              onClick : () => filterItem(""), 
+            },
+            {
+              key: "BMW",
+              label: "BMW",
+              onClick : () => filterItem("BMW"), 
+            },
+            {
+              key: "volvo",
+              label: "VOLVO",
+              onClick : () => filterItem("볼보"), 
+            },
+            {
+              key: "mers",
+              label: "Mercedes",
+              onClick : () => filterItem("벤츠"), 
+            },
+            {
+              key: "audi",
+              label: "AUDI",
+              onClick : () => filterItem("아우디"), 
+            },
+            {
+              key: "mini",
+              label: "Mini",
+              onClick : () => filterItem("미니"), 
+            },
+            {
+              key: "Porshe",
+              label: "Porshe",
+              onClick : () => filterItem("포르쉐"), 
+            },
+          ]}
+        />
+      </Sider>
           {/* <Sidebar
             rootStyles={{
               [`.${sidebarClasses.container}`]: {
@@ -241,16 +288,55 @@ export default function Booking() {
           ) : (
             <></>
           )}
-          {/* {detail.map((pop, index) => (
+          {detail.map((pop, index) => (
+            // <Modal
+            //   key={index}
+            //   open={open}
+            //   onClose={handleClose}
+            //   aria-labelledby="modal-modal-title"
+            //   aria-describedby="modal-modal-description"
+            // >
+            //   <Box sx={style} style={{ color: "#000" }}>
+            //     <SlideshowLightbox
+            //       style={{ display: "flex" }}
+            //       // className="cocontainer grid grid-cols-3 gap-2 mx-auto lightboxjs"
+            //       className={styles.slideshow}
+            //     >
+            //       <img
+            //         style={{ width: "300px" }}
+            //         className="w-full rounded"
+            //         src={`https://ci.encar.com${pop.Photos[0].location}`}
+            //       />
+            //       <img
+            //         style={{ width: "50px", height: "50px" }}
+            //         className="w-full rounded"
+            //         src={`https://ci.encar.com${pop.Photos[1].location}`}
+            //       />
+            //       <img
+            //         style={{ width: "50px", height: "50px" }}
+            //         className="w-full rounded"
+            //         src={`https://ci.encar.com${pop.Photos[2].location}`}
+            //       />
+            //       <img
+            //         style={{ width: "50px", height: "50px" }}
+            //         className="w-full rounded"
+            //         src={`https://ci.encar.com${pop.Photos[3].location}`}
+            //       />
+            //     </SlideshowLightbox>
+            //     <h2>Модель: {pop.Model}</h2>
+            //     <h3>Год: {pop.FormYear}</h3>
+            //     <h3>Цена: {pop.Price}</h3>
+            //     <h3>Пробег: {pop.Mileage}</h3>
+            //     <h3>Тип топлива: {pop.Manufacturer}</h3>
+            //   </Box>
+            // </Modal>
             <Modal
-              key={index}
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style} style={{ color: "#000" }}>
-                <SlideshowLightbox
+            centered
+            open={open}
+            onOk={handleClose}
+            onCancel={handleClose}
+          >
+            <SlideshowLightbox
                   style={{ display: "flex" }}
                   // className="cocontainer grid grid-cols-3 gap-2 mx-auto lightboxjs"
                   className={styles.slideshow}
@@ -281,9 +367,8 @@ export default function Booking() {
                 <h3>Цена: {pop.Price}</h3>
                 <h3>Пробег: {pop.Mileage}</h3>
                 <h3>Тип топлива: {pop.Manufacturer}</h3>
-              </Box>
-            </Modal>
-          ))} */}
+          </Modal>
+          ))} 
         </div>
         <ScrollUpButton />
       </MainLayout>{" "}
