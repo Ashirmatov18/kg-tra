@@ -331,6 +331,7 @@ export default function Booking() {
             //   </Box>
             // </Modal>
             <Modal
+            key={index}
             centered
             open={open}
             onOk={handleClose}
