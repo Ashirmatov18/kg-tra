@@ -87,6 +87,7 @@ export default function ConnectUs() {
             ОБЪЁМ ДВИГАТЕЛЯ
           </label>
         </div>
+       
         <div className={`${styles.input_container} ${styles.ic2}`}>
           <input
             id="complect"
@@ -99,6 +100,13 @@ export default function ConnectUs() {
             ГОД ВЫПУСКА
           </label>
         </div>
+        <div className={styles.cut_drop}>
+          <select className={styles.cut_dropdown}>
+             <option value="less-than-3y">Корея</option>
+             <option value="more-than-3y">Кыргызстан</option>
+             <option value="more-than-5y">Россия</option>
+          </select>
+          </div>
         <Link href={"/"}>
           <button type="text" className={styles.submit}>
             Отправить

@@ -164,7 +164,7 @@ export default function Catalog() {
             className={styles.searchbar}
           /> */}
         </div>
-        <div className={styles.button_group}>
+        {/* <div className={styles.button_group}>
           <button
             className={styles.button_74}
             role="button"
@@ -193,7 +193,7 @@ export default function Catalog() {
           >
             BMW
           </button>
-        </div>
+        </div> */}
         {/* <ProSidebarProvider>
           <Sidebar
             rootStyles={{

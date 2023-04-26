@@ -174,14 +174,17 @@ export default function About() {
                     <div className={styles.picture_info}>
                       <div className={styles.first_tech_pic}></div>
                       <h2>Надежность</h2>
+                      <h3>более 13 лет на рынке и более 10000 успешныз сделок</h3>
                     </div>
                     <div className={styles.picture_info}>
                       <div className={styles.second_tech_pic}></div>
                       <h2>ОПЕРАТИВНОСТЬ</h2>
+                      <h3>доставим вашу машину в кратчайшие сроки</h3>
                     </div>
                     <div className={styles.picture_info}>
                       <div className={styles.third_tech_pic}></div>
                       <h2>ЛУЧШИЕ ЦЕНЫ</h2>
+                      <h3>экономия до 20%</h3>
                     </div>
                   </div>
                   <h1 style={{ marginTop: "170px" }} className={styles.adv_title}>Наши преимущества</h1>
@@ -190,27 +193,21 @@ export default function About() {
                       <div className={styles.fourth_tech_pic}></div>
                       <h2>ФИНАНСОВАЯ ПРОЗРАЧНОСТЬ СДЕЛКИ</h2>
                       <h3>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eum dignissimos voluptatum impedit, alias facilis
-                        libero!
+                      весь процесс будет идти по договору
                       </h3>
                     </div>
                     <div className={styles.picture_info}>
                       <div className={styles.fifth_tech_pic}></div>
                       <h2>ТЕХНИЧЕСКИЕ ГАРАНТИИ</h2>
                       <h3>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eum dignissimos voluptatum impedit, alias facilis
-                        libero!
+                      диллер продает автомобиль с гарантией на двигатель и трансмиссию до 1 года
                       </h3>
                     </div>
                     <div className={styles.picture_info}>
                       <div className={styles.sixth_tech_pic}></div>
                       <h2>НАДЕЖНАЯ ДОСТАВКА</h2>
                       <h3>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eum dignissimos voluptatum impedit, alias facilis
-                        libero!
+                      доставку осуществливается авиа и мультиимодальной перевозкой
                       </h3>
                     </div>
                   </div>

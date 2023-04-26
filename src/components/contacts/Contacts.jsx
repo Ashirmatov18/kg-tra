@@ -176,6 +176,7 @@ export default function Contacts() {
           if (this.id === `link-${feature.properties.id}`) {
             flyToStore(feature);
             createPopUp(feature);
+            console.log(feature)
           }
         }
         const activeItem = document.getElementsByClassName("active");
@@ -207,10 +208,11 @@ export default function Contacts() {
     const popup = new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h3>Sweetgreen</h3><h4>${currentFeature.properties.address}</h4>`
+        `<h3>Address</h3><h3>${currentFeature.properties.address}</h3>`
       )
       .addTo(Map);
   }
+
 
   return (
     <>
