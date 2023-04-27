@@ -123,7 +123,8 @@
   }
   .sidebar_mobile{
     display: block;
-    margin-top: 765px;
+    /* margin-top: 765px; */
+    margin: 765px 0  auto;
   }
 
   .sidebar{
@@ -162,5 +163,13 @@
     width: 100%;
     margin-left: 0;
     padding: 10px;
+  }
+}
+
+
+
+@media only screen and (max-width: 400px) {
+  .sidebar_mobile{
+    margin: 855px 0  auto;
   }
 }

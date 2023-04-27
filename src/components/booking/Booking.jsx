@@ -215,35 +215,51 @@ export default function Booking() {
         </div>
 
         <div className={styles.sidebar_mobile}>
-        {/* <Sidebar
-            rootStyles={{
-              [`.${sidebarClasses.container}`]: {
-                color: "#142c56",
-              },
-            }}
-            className={styles.mobile_side}
-          >
-            <Menu>
-              <SubMenu label="Выберите машину">
-              <MenuItem onClick={() => filterItem("")}> ВСЕ МАШИНЫ </MenuItem>
-              <MenuItem onClick={() => filterItem("BMW")}> BMW </MenuItem>
-              <MenuItem onClick={() => filterItem("볼보")}> Volvo </MenuItem>
-              <MenuItem onClick={() => filterItem("벤츠")}> Mercedes </MenuItem>
-              <MenuItem onClick={() => filterItem("아우디")}> Audi </MenuItem>
-              <MenuItem onClick={() => filterItem("미니")}> Mini </MenuItem>
-              <MenuItem onClick={() => filterItem("포르쉐")}> Porshe </MenuItem>
-              <MenuItem onClick={() => filterItem("포르쉐")}> Porshe </MenuItem>
-              <MenuItem onClick={() => filterItem("랜드로버")}>
-                {" "}
-                Land Rover{" "}
-              </MenuItem>
-              <MenuItem onClick={() => filterItem("폭스바겐")}>
-                {" "}
-                Wolswagen{" "}
-              </MenuItem>
-              </SubMenu>
-            </Menu>
-          </Sidebar>{" "} */}
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo" />
+        <Menu
+          theme="light"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={[
+            {
+              key: "all",
+              label: "ВСЕ МАШИНЫ",
+              onClick : () => filterItem(""), 
+            },
+            {
+              key: "BMW",
+              label: "BMW",
+              onClick : () => filterItem("BMW"), 
+            },
+            {
+              key: "volvo",
+              label: "VOLVO",
+              onClick : () => filterItem("볼보"), 
+            },
+            {
+              key: "mers",
+              label: "Mercedes",
+              onClick : () => filterItem("벤츠"), 
+            },
+            {
+              key: "audi",
+              label: "AUDI",
+              onClick : () => filterItem("아우디"), 
+            },
+            {
+              key: "mini",
+              label: "Mini",
+              onClick : () => filterItem("미니"), 
+            },
+            {
+              key: "Porshe",
+              label: "Porshe",
+              onClick : () => filterItem("포르쉐"), 
+            },
+          ]}
+        />
+      </Sider>
         </div>
 
         <div className={styles.encar_product}>
