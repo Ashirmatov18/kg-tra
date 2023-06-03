@@ -15,16 +15,14 @@ export default function AddTest() {
     price: "",
     driving: "",
     image: null,
-    mainimage: "",
-    secondimage: "",
-    thirdimage: "",
+    mainimage: null,
+    secondimage: null,
+    thirdimage: null,
     country: "",
     mileage: "",
     description: "",
     equipment: "",
   });
-
-console.log(carData)
 
 
   useEffect(() => {
@@ -37,17 +35,42 @@ console.log(carData)
     const { name, value, files } = e.target;
     const formData = new FormData();
 
+    // if (files) {
+    //   formData.append("image", files[0]);
+    //   // console.log(files)
+    // }
+
+    // formData.append(name, value);
+
+    // setCarData((prevData) => ({
+    //   ...prevData,
+    //   [name]: files ? files[0] : value  
+    // }));
+
     if (files) {
-      formData.append("image", files[0]);
+      formData.append(name, files[0]);
+    } else {
+      formData.append(name, value);
     }
-
-    formData.append(name, value);
-
+    formData.append("image", carData.image);
+    formData.append("mainimage", carData.mainimage);
+    formData.append("secondimage", carData.secondimage);
+    formData.append("thirdimage", carData.thirdimage);
     setCarData((prevData) => ({
       ...prevData,
       [name]: files ? files[0] : value,
+      // keep the other image fields in state
+      image: name === "image" ? files[0] : prevData.image,
+      mainimage: name === "mainimage" ? files[0] : prevData.mainimage,
+      secondimage: name === "secondimage" ? files[0] : prevData.secondimage,
+      thirdimage: name === "thirdimage" ? files[0] : prevData.thirdimage,
     }));
+  
+  
+    
   };
+
+  console.log(carData)
 
 
   const handleSubmit = async (e) => {
@@ -96,9 +119,9 @@ console.log(carData)
       <input type="number" name="price" onChange={handleChange} className={styles.input_main} placeholder='Цена'/>
       <input type="text" name="driving" onChange={handleChange}className={styles.input_main} placeholder='Привод'/>
       <input type="file" name="image" onChange={handleChange} />
-      <input type="text" name="mainimage" onChange={handleChange} className={styles.input_main} placeholder='2 картинка'/>
-      <input type="text" name="secondimage" onChange={handleChange} className={styles.input_main} placeholder='3 картинка'/>
-      <input type="text" name="thirdimage" onChange={handleChange} className={styles.input_main} placeholder='4 картинка'/>
+      <input type="file" name="mainimage" onChange={handleChange} />
+      <input type="file" name="secondimage" onChange={handleChange} />
+      <input type="file" name="thirdimage" onChange={handleChange} />
       <input type="text" name="country" onChange={handleChange} className={styles.input_main} placeholder='Страна'/>
       <input type="number" name="mileage" onChange={handleChange} className={styles.input_main} placeholder='Пробег'/>
       <input type="text" name="description" onChange={handleChange}className={styles.input_main}placeholder='Описание товара'/>

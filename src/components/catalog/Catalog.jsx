@@ -7,8 +7,6 @@ import styles from "../../../public/styles/AdminPage.module.css";
 import PaginationRounded from "../pagination/Pagination";
 import { paginate } from "../pagination/paginate";
 import { useRouter } from "next/router";
-import { toast } from "react-toastify";
-// import { styled } from "@material-ui/core/styles/styled";
 import Footer from "../Container/footer/Footer";
 
 
@@ -83,7 +81,7 @@ export default function Catalog() {
     const sortToHigh = searchItem.sort((a, b) => b.price - a.price);
     setData(sortToHigh);
   };
-
+console.log(data)
   const searchItem = data.filter((car) => {
     return car.name.toLowerCase().includes(value.toLowerCase());
   });
@@ -231,7 +229,7 @@ export default function Catalog() {
                         <a className={styles.car_menu_item}>
                           <img
                             className={styles.card_menu_img}
-                            src={item.secondimage}
+                            src={`http://localhost:3306/${item.secondimage}`}
                           />
                         </a>
                       </ul>

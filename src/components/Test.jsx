@@ -1,21 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
-import Header from "./Container/Header/Header";
 import styles from "../../public/styles/Test.module.css";
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Footer from "./Container/footer/Footer";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Link from "next/link";
-import Image from "next/image";
-// import InputLabel from "@material-ui/core/InputLabel/InputLabel";
-// import MenuItem from "@material-ui/core//MenuItem";
-// import FormControl from "@material-ui/core/FormControl";
-// import Select from "@material-ui/core/Select";
 import emailjs from "@emailjs/browser";
-import { Dropdown,Space,Menu } from "antd";
 
 
 export default function Test() {
@@ -255,7 +247,7 @@ export default function Test() {
       );
   };
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:3306/api/get");
+    const response = await axios.get("https://node-traiding.vercel.app/api/get");
     if (response.status === 200) {
       setState(response.data);
     }
@@ -268,7 +260,7 @@ export default function Test() {
           <img className={styles.card_menu_img} src={item.secondimage} />
         </a>
       </ul>
-      <img src={`http://localhost:3306/${item.image}`} className={styles.card_img} />
+      <img src={`https://node-traiding.vercel.app/${item.image}`} className={styles.card_img} />
 
       <div className={styles.card_info}>
         <h1 className={styles.card_title}>{item.name}</h1>
@@ -423,18 +415,7 @@ export default function Test() {
           <h2 style={{ paddingTop: "20px", paddingBottom: "50px" }}>
             Наша компания
           </h2>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          beatae, nisi ea quos doloremque nostrum quia voluptatem explicabo
-          autem dolorem esse dolore illum aut cupiditate minima non voluptas
-          ipsa aliquid. <br /> Eos sint molestias voluptas adipisci consectetur
-          obcaecati facilis nam! Quia sunt dolores iure nostrum consectetur cum
-          nobis voluptatibus sapiente praesentium enim non expedita iusto unde
-          eaque quisquam, <br /> <br /> provident repellat cupiditate? Officiis
-          quam beatae, ipsam, repellat vero dolorum voluptatibus voluptatem
-          dolore maxime, id non doloremque? <br /> <br /> Eos dignissimos, eaque
-          suscipit expedita laborum voluptatibus commodi inventore, accusamus,
-          deserunt corporis provident sit iste amet. Labore possimus explicabo
-          maxime alias atque quos eos,
+          KG Trading Company — надежная транспортная компания, специализирующаяся на импорте и экспорте автомобилей из Южной Кореи. Благодаря многолетнему опыту мы предоставляем надежные и эффективные логистические решения для частных лиц и предприятий. <br /> <br /> Наша преданная команда обеспечивает безопасную и своевременную доставку, занимаясь всеми аспектами процесса перевозки, включая проверку, документацию и таможенное оформление. <br /> <br /> Выбирайте KG Trading Company для профессиональных и клиентоориентированных услуг по перевозке автомобилей. Свяжитесь с нами сегодня для беспроблемных логистических решений.
         </div>
         <div className={styles.main_info_img}></div>
       </div>
@@ -471,28 +452,33 @@ export default function Test() {
         }}
         className={styles.calculator_title_main}
       >
-        Высчитать цену
+        Видео
       </h1>
-      <div className={styles.center}>
+      <div className={styles.video_review}>
+        <div className={styles.video_info_block}>
+        <video className={styles.video_info} controls>
+          <source src="./images/r1.MOV" />
+        </video>
+        </div>
+        <div className={styles.video_info_block}>
+        <video className={styles.video_info} controls>
+          <source src="./images/r2.MOV" />
+        </video>
+        </div>
+        <div className={styles.video_info_block}>
+        <video className={styles.video_info} controls>
+          <source src="./images/r3.MOV" />
+        </video>
+        </div>
+        <div className={styles.video_info_block}>
+        <video className={styles.video_info} controls>
+          <source src="./images/r4.MOV" />
+        </video>
+        </div>
+      </div>
+      {/* <div className={styles.center}>
         <h1>КАЛЬКУЛЯТОР</h1>
         <form>
-          {/* <FormControl
-            fullWidth
-            style={{ width: "100%", marginBottom: "50px" }}
-          >
-            <InputLabel id="demo-simple-select-label">Год выпуска</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="model-year"
-              value={year}
-              label="Age"
-              onChange={handleYearChange}
-            >
-              <MenuItem value="less-than-3y">Меньше 3х лет</MenuItem>
-              <MenuItem value="more-than-3y">Больше 3 лет</MenuItem>
-              <MenuItem value="more-than-5y">Больше 5 лет</MenuItem>
-            </Select>
-          </FormControl> */}
 
           <div className={styles.box_drop}>
           <select value={year} onChange={handleYearChange}>
@@ -548,7 +534,9 @@ export default function Test() {
             </p>
           </div>
         )}
-      </div>
+      </div>  */}
+
+      
       <div className={styles.connect_us}>
         <div className={styles.message}>
           <h1>Оставить сообщение</h1>

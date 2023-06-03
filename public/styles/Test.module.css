@@ -728,6 +728,26 @@
   padding: 30px;
 }
 
+.video_review{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video_info_block{
+  width: 50%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.video_info{
+  width: 400px;
+  height: 300px;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
 @media only screen and (max-width: 1200px) {
   .catalog_title {
     margin-top: 100px !important;
