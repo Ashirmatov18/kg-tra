@@ -475,6 +475,11 @@ export default function Test() {
           <source src="./images/r4.MOV" />
         </video>
         </div>
+        <div className={styles.video_info_block}>
+        <video className={styles.video_info} controls>
+          <source src="./images/r5.MOV" />
+        </video>
+        </div>
       </div>
       {/* <div className={styles.center}>
         <h1>КАЛЬКУЛЯТОР</h1>
