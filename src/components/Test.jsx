@@ -455,7 +455,7 @@ export default function Test() {
         Видео
       </h1>
       <div className={styles.video_review}>
-        <div className={styles.video_info_block}>
+        {/* <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
           <source src="./images/r1.MOV" />
         </video>
@@ -479,7 +479,7 @@ export default function Test() {
         <video className={styles.video_info} controls>
           <source src="./images/r5.MOV" />
         </video>
-        </div>
+        </div> */}
       </div>
       {/* <div className={styles.center}>
         <h1>КАЛЬКУЛЯТОР</h1>
