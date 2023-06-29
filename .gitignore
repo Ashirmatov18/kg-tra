@@ -42,3 +42,9 @@ yarn-error.log*
 .eslintcache
 
 .next/cache/webpack/client-development/8.pack
+
+
+/public/images/r1.MOV
+/public/images/r2.MOV
+/public/images/r4.MOV
+/public/images/r5.MOV
