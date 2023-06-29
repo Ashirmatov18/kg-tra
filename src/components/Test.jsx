@@ -455,29 +455,29 @@ export default function Test() {
         Видео
       </h1>
       <div className={styles.video_review}>
-        <div className={styles.video_info_block}>
+         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
+          <source src="./images/r1.MOV" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
+          <source src="./images/r2.MOV" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
+          <source src="./images/r3.MOV" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
+          <source src="./images/r4.MOV" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
+          <source src="./images/r5.MOV" />
         </video>
         </div> 
       </div>
