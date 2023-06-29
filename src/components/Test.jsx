@@ -455,31 +455,31 @@ export default function Test() {
         Видео
       </h1>
       <div className={styles.video_review}>
-        {/* <div className={styles.video_info_block}>
+        <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="./images/r1.MOV" />
+          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="./images/r2.MOV" />
+          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="./images/r3.MOV" />
+          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="./images/r4.MOV" />
+          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
         </video>
         </div>
         <div className={styles.video_info_block}>
         <video className={styles.video_info} controls>
-          <source src="./images/r5.MOV" />
+          <source src="https://www.youtube.com/watch?v=-YyJ13s4Uc8" />
         </video>
-        </div> */}
+        </div> 
       </div>
       {/* <div className={styles.center}>
         <h1>КАЛЬКУЛЯТОР</h1>
