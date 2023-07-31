@@ -70,7 +70,6 @@ export default function AddTest() {
     
   };
 
-  console.log(carData)
 
 
   const handleSubmit = async (e) => {

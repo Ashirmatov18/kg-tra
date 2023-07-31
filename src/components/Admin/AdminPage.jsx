@@ -7,7 +7,8 @@ import { paginate } from "../pagination/paginate";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { toast } from "react-toastify";
-import Image from "next/image";
+
+
 // const style = {
 //   position: "absolute",
 //   top: "50%",
@@ -39,8 +40,6 @@ export default function AdminPage() {
       setData(response.data);
     }
   };
-
-  console.log(data);
 
   const onDelete = (id) => {
     // const response = await axios.delete(
@@ -81,18 +80,19 @@ export default function AdminPage() {
     setData(sortToHigh);
   };
 
-  
+  console.log(data)
+
 
   if(data){
     
   }
+
   const searchItem = data.filter((car) => {
     return car.name.toLowerCase().includes(value.toLowerCase());
   });
   
   const paginateData = paginate(searchItem, currentPage, pageSize);
   
-
 
   return (
     <main className={styles.main}>
