@@ -553,3 +553,14 @@ a:hover {
     font-size: 15px;
   }
 }
+
+@media (max-width: 400px) {
+  #owl-carousel-products
+    #owl-carousel-ul
+    #featuredProducts
+    .productListing
+    .image
+    img {
+    height: 150px;
+  }
+}

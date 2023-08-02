@@ -398,7 +398,7 @@
     4px 4px 0px #dc143c;
 } */
 
-.nav {
+/* .nav {
   float: left;
   position: absolute;
   top: 0;
@@ -450,7 +450,6 @@
 }
 .nav ul li:nth-child(4):after {
   content: "BMW";
-  /* line-height: 70px; */
 }
 
 .nav ul li:hover {
@@ -470,6 +469,55 @@
 
 .nav ul li div {
   position: relative;
+} */
+/* li a {text-decoration : none; color : #2d2f31;} */
+
+
+.nav {
+  position: relative;
+}
+
+/* Hide the checkbox */
+.inputCheckbox {
+  display: none;
+}
+
+/* Style the label as a button or any other element you prefer */
+.labelCheckbox {
+  background-color: #f2f2f2;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: block;
+}
+
+/* Add a span inside the label for styling purposes */
+.labelCheckbox span {
+  font-weight: bold;
+}
+
+/* Style the slide menu */
+.slide {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 0; /* Start with height as 0 to hide the menu */
+  overflow: hidden;
+  transition: height 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Show the slide menu when the checkbox is checked */
+.inputCheckbox:checked + .slide {
+  height: 150px; /* Set the desired height for the menu */
+}
+.nav ul li{
+  font-size: 20px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+.nav ul li:hover{
+  font-size: 22px;
+  color: #142c56;
+  font-weight: bold;
 }
 
 .roof {
@@ -740,6 +788,9 @@
     width: auto;
     height: 530px;
   }
+  .card_list{
+    padding: 0;
+  }
 }
 
 @media only screen and (max-width: 420px) {
@@ -752,5 +803,8 @@
   }
   .message {
     padding: 40px 40px;
+  }
+  .main{
+    padding: 4rem;
   }
 }

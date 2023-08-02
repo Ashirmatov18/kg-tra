@@ -83,7 +83,6 @@ export default function Catalog() {
     const sortToHigh = searchItem.sort((a, b) => b.price - a.price);
     setData(sortToHigh);
   };
-console.log(data)
   const searchItem = data.filter((car) => {
     return car.name.toLowerCase().includes(value.toLowerCase());
   });
@@ -95,7 +94,7 @@ console.log(data)
         <h1>КАТАЛОГ</h1>
       </div>
       <main className={styles.main} id={styles.main_catalog}>
-        <nav className={styles.nav}>
+        {/* <nav className={styles.nav}>
           <ul>
             <li onClick={() => getUsers()}>
               <div className={styles.all_car}></div>
@@ -115,7 +114,27 @@ console.log(data)
               </div>
             </li>
           </ul>
-        </nav>
+        </nav> */}
+       <nav className={styles.nav}>
+      <label htmlFor="touch" className={styles.labelCheckbox}><span>Марка Машины</span></label>
+      <input type="checkbox" id="touch" className={styles.inputCheckbox} />
+
+      <ul className={styles.slide}>
+        {data &&
+              data.map((item, index) => {
+                return (
+                  <>
+                  <li onClick={() => getUsers()}>Все Машины</li>
+                            <li ><a onClick={() => filterItem(`${item.name}`)}>{item.name}</a></li>
+                  </>
+                );
+              })}
+      </ul>
+    </nav>
+
+
+
+
         {/* <Box sx={{ display: "flex" }}>
           <CssBaseline />
           <Drawer
