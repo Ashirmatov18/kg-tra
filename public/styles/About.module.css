@@ -479,6 +479,9 @@
   .technologies{
     margin-top: 70px;
   }
+  .tech_first {
+    padding: 0;
+  }
 }
 
 @media only screen and (max-width: 520px) {
