@@ -59,6 +59,8 @@ export default function Catalog() {
     }
   };
 
+  console.log(data)
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
     console.log(setCurrentPage(page));

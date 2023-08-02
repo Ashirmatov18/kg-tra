@@ -873,6 +873,9 @@
   .message {
     padding: 20px 40px;
   }
+  .video_info_block{
+    width: 100%;
+  }
 }
 
 @media (max-width: 420px) {

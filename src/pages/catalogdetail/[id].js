@@ -27,7 +27,7 @@ const catalogDetail = ({ item }) => {
             <div className={styles.img_select}>
               <div className={styles.img_item}>
                 <a href="#" data-id="1">
-                  <img src={item[0].mainimage} alt="shoe image" />
+                  <img src={`http://localhost:3306/${item[0].mainimage}`} alt="shoe image" />
                   <div
                     className={styles.image_back}
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -36,7 +36,7 @@ const catalogDetail = ({ item }) => {
               </div>
               <div className={styles.img_item}>
                 <a href="#" data-id="2">
-                  <img src={item[0].secondimage} alt="shoe image" />
+                  <img src={`http://localhost:3306/${item[0].secondimage}`} alt="shoe image" />
                   {/* <div
                     className={styles.image_back"
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -45,7 +45,7 @@ const catalogDetail = ({ item }) => {
               </div>
               <div className={styles.img_item}>
                 <a href="#" data-id="3">
-                  <img src={item[0].thirdimage} alt="shoe image" />
+                  <img src={`http://localhost:3306/${item[0].thirdimage}`} alt="shoe image" />
                   <div
                     className={styles.image_back}
                     style={{ backgroundImage: `url(${item[0].image})` }}

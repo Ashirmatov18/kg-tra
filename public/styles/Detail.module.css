@@ -31,6 +31,7 @@
 }
 .img_item {
   margin: 0.3rem;
+  height: 200px !important;
 }
 .img_item:nth-child(1),
 .img_item:nth-child(2),
@@ -39,6 +40,10 @@
 }
 .img_item:hover {
   opacity: 0.8;
+}
+
+.img_item a img{
+  height: 200px;
 }
 .product_content {
   padding: 2rem 1rem;
