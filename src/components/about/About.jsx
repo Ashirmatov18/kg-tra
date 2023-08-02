@@ -130,35 +130,22 @@ export default function About() {
               <div className={styles.creation}>
                 <div className={styles.creation_title}>
                   <h1>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.{" "}
-                    <br /> At, incidunt!
+                  Добро пожаловать в компанию "Kgtrading" - вашего <br/> надежного партнера по перевозке машин!
                   </h1>
                 </div>
                 <div className={styles.information}>
                   <div className={styles.first_section}>
                     <div className={styles.start_info}>
                       <span>
-                        ВLorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Doloremque, inventore dolores. Labore explicabo
-                        reiciendis nostrum! <br /> <br />
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Autem, esse. <br /> Lorem ipsum dolor, sit amet
-                        consectetur adipisicing elit. Dolores, in ipsa. Lorem
-                        ipsum dolor sit amet consectetur, adipisicing elit.
-                        Harum, nobis? <br /> asdsa dolor sit amet consectetur
-                        adipisicing elit. Quae, assumenda autem.4 <br />
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptate, fuga.
+                      "Kgtrading" - это динамичная и профессиональная компания по перевозке машин, специализирующаяся на предоставлении качественных и надежных услуг по транспортировке автомобилей. Наша компания была основана с целью обеспечить клиентам безопасные
+                      <br />
+ и эффективные решения для перевозки автомобилей различных типов и размеров.
+
+<br />
                         <br />
-                        <br />
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Accusamus adipisci totam consequatur asperiores
-                        inventore dicta, fugit voluptatem ducimus maiores
-                        quisquam tempore quis hic ea expedita veniam rerum.
-                        Laborum vel impedit pariatur hic distinctio voluptas
-                        placeat voluptatum facilis veniam dolorem molestias
-                        reprehenderit aspernatur dignissimos praesentium odit
-                        nihil quod officia, expedita quia.
+                        Мы готовы взять на себя ответственность за перевозку вашего автомобиля, независимо от его марки, модели или места назначения. Обратитесь к нам сегодня, и доверьте перевозку своего автомобиля профессионалам "Kgtrading". Мы гарантируем высокий уровень обслуживания и полную заботу о вашем транспорте на протяжении всего процесса перевозки.
+
+
                       </span>
                     </div>
                     <div className={styles.first_image}></div>
