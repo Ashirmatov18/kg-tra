@@ -53,7 +53,7 @@ export default function Booking() {
   // };
   // const api = `http://api.encar.com/search/car/list/general?count=true&q=(And.Hidden.N._.CarType.Y._.Simple.keyword(1234).)&inav=%7C7C${currentPage}%7C10`;
 
-  const api = `https://api.encar.com/search/car/list/premium?count=true&q=(And.Hidden.N.${search})&sr=%7CModifiedDate%7C${currentPage}%7C10`;
+  const api = `https://api.encar.com/search/car/list/premium?count=true&q=(And.Hidden.N.${search}_.CarType.N.)&sr=%7CModifiedDate%7C${currentPage}%7C10`;
   const scrollHandler = (e) => {
     if (
       e.target.documentElement.scrollHeight -
@@ -64,6 +64,7 @@ export default function Booking() {
       setFetching(true);
     }
   };
+  'http://api.encar.com/search/car/list/premium?count=true&q=(And.Hidden.N._.CarType.N.)&sr=%7CModifiedDate%7C0%7C20'
   // const getCar = async () => {
   //   const response = await axios.get(api);
   //   if (response.status === 200) {
