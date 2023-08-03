@@ -44,7 +44,7 @@ export default function AddEdit(props) {
   
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/get/${id}`)
+      .get(`https://serverkg.vercel.app/api/get/${id}`)
       .then((resp) => setinState({ ...resp.data[0] }));
   }, [id]);
 
@@ -67,7 +67,7 @@ export default function AddEdit(props) {
   } = inState;
 
   const addContanct = async (data) => {
-    const response = await axios.post("http://localhost:5000/api/post", data);
+    const response = await axios.post("https://serverkg.vercel.app/api/post", data);
     if (response.status === 200) {
       toast.success(response.data);
     }
@@ -99,7 +99,7 @@ export default function AddEdit(props) {
     } else {
       if (!id) {
         axios
-          .post("http://localhost:5000/api/post", {
+          .post("https://serverkg.vercel.app/api/post", {
             name,
             year,
             color,
@@ -138,7 +138,7 @@ export default function AddEdit(props) {
       } else {
         // updateContact(inState, id);
         axios
-          .put(`http://localhost:5000/api/update/${id}`, {
+          .put(`https://serverkg.vercel.app/api/update/${id}`, {
             name,
             year,
             color,

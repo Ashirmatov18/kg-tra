@@ -12,7 +12,7 @@ const update = ({ item }) => {
 
 
 export async function getServerSideProps({ params: { id } }) {
-  const res = await fetch(`http://localhost:3306/api/get/${id}`);
+  const res = await fetch(`https://serverkg.vercel.app/api/get/${id}`);
   const data = await res.json();
   
   return {

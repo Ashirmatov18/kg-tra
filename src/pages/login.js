@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export default function Login() {
   const router = useRouter();
-
+  
   const logIn = (e) => {
     e.preventDefault();
     Cookies.set("loggedin", true);
@@ -15,10 +15,10 @@ export default function Login() {
   return (
     <div>
       <form onSubmit={(e) => logIn(e)}>
-        <h1>Log In</h1>
+        <h1>Админка</h1>
         <input type="text" placeholder="Username" required />
         <input type="password" placeholder="Password" required />
-        <button>Log In</button>
+        <button>Войти</button>
       </form>
     </div>
   );

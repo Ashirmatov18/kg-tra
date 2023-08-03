@@ -5,6 +5,12 @@
   max-width: 1300px;
 }
 
+@media(max-width: 5000px){
+  .main_lay {
+    padding: 4rem;
+  }
+}
+
 @media(max-width: 400px){
   .main_lay {
     padding: 2rem;

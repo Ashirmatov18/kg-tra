@@ -35,7 +35,7 @@ export default function AdminPage() {
 
   const getUsers = async () => {
     // const response = await axios.get("http://localhost:3306/api/get");
-    const response = await axios.get("http://localhost:3306/api/get");
+    const response = await axios.get("https://serverkg.vercel.app/api/get");
     if (response.status === 200) {
       setData(response.data);
     }
@@ -50,7 +50,7 @@ export default function AdminPage() {
     // }
     // setOpen(false);
     if (window.confirm("Вы хотите удалить?")) {
-      axios.delete(`http://localhost:3306/api/remove/${id}`);
+      axios.delete(`https://serverkg.vercel.app/api/remove/${id}`);
       toast.success("удален успешно");
       setTimeout(() => getUsers(), 500);
     }
@@ -134,7 +134,7 @@ export default function AdminPage() {
                       // style={{
                       //   backgroundImage: `https://node-traiding.vercel.app/${item.image}`,
                       // }}
-                      src={`http://localhost:3306/${item.image}`}
+                      src={`https://serverkg.vercel.app/${item.image}`}
                       className={styles.card_img}
                     />
                     <div style={{ padding: "10px" }}>

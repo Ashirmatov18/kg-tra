@@ -52,7 +52,7 @@ export default function Catalog() {
   // }, [id]);
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:3306/api/get");
+    const response = await axios.get("https://serverkg.vercel.app/api/get");
     //https://node-traiding.vercel.app/api/get
     if (response.status === 200) {
       setData(response.data);
@@ -250,11 +250,11 @@ export default function Catalog() {
                         <a className={styles.car_menu_item}>
                           <img
                             className={styles.card_menu_img}
-                            src={`http://localhost:3306/${item.secondimage}`}
+                            src={`https://serverkg.vercel.app/${item.secondimage}`}
                           />
                         </a>
                       </ul>
-                      <img src={`http://localhost:3306/${item.image}`} className={styles.card_img} />
+                      <img src={`https://serverkg.vercel.app/${item.image}`} className={styles.card_img} />
 
                       <div className={styles.card_info}>
                         <h1 className={styles.card_title}>{item.name}</h1>

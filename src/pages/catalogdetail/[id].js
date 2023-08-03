@@ -18,7 +18,7 @@ const catalogDetail = ({ item }) => {
           <div className={styles.product_imgs}>
             <div className={styles.img_display}>
               <div className={styles.img_showcase}>
-                <img src={`http://localhost:3306/${item[0].image}`} alt="shoe5 image" />
+                <img src={`https://serverkg.vercel.app/${item[0].image}`} alt="shoe5 image" />
                 <img src={item[0].mainimage} alt="shoe 4image" />
                 <img src={item[0].secondimage} alt="shoe 6image" />
                 <img src={item[0].thirdimage} alt="shoe 7image" />
@@ -27,7 +27,7 @@ const catalogDetail = ({ item }) => {
             <div className={styles.img_select}>
               <div className={styles.img_item}>
                 <a href="#" data-id="1">
-                  <img src={`http://localhost:3306/${item[0].mainimage}`} alt="shoe image" />
+                  <img src={`https://serverkg.vercel.app/${item[0].mainimage}`} alt="shoe image" />
                   <div
                     className={styles.image_back}
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -36,7 +36,7 @@ const catalogDetail = ({ item }) => {
               </div>
               <div className={styles.img_item}>
                 <a href="#" data-id="2">
-                  <img src={`http://localhost:3306/${item[0].secondimage}`} alt="shoe image" />
+                  <img src={`https://serverkg.vercel.app/${item[0].secondimage}`} alt="shoe image" />
                   {/* <div
                     className={styles.image_back"
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -45,7 +45,7 @@ const catalogDetail = ({ item }) => {
               </div>
               <div className={styles.img_item}>
                 <a href="#" data-id="3">
-                  <img src={`http://localhost:3306/${item[0].thirdimage}`} alt="shoe image" />
+                  <img src={`https://serverkg.vercel.app/${item[0].thirdimage}`} alt="shoe image" />
                   <div
                     className={styles.image_back}
                     style={{ backgroundImage: `url(${item[0].image})` }}
@@ -120,7 +120,7 @@ const catalogDetail = ({ item }) => {
 };
 
 export async function getServerSideProps({ params: { id } }) {
-  const res = await fetch(`http://localhost:3306/api/get/${id}`);
+  const res = await fetch(`https://serverkg.vercel.app/api/get/${id}`);
   const data = await res.json();
   // console.log(res);
 

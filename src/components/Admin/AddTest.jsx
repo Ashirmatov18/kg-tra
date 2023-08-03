@@ -27,7 +27,7 @@ export default function AddTest() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3306/api/get/${id}`)
+      .get(`https://serverkg.vercel.app/api/get${id}`)
       .then((resp) => setCarData({ ...resp.data[0] }));
   }, [id]);
 
@@ -91,7 +91,7 @@ export default function AddTest() {
       formData.append("equipment", carData.equipment);
       try {
         const response = await axios.post(
-          "http://localhost:3306/api/post",
+          "https://serverkg.vercel.app/api/post",
           // "https://node-traiding.vercel.app/api/post",
           formData,
           {
