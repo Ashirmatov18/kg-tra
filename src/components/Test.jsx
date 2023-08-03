@@ -308,7 +308,8 @@ export default function Test() {
               <div className={styles.main_page_number_img_second}></div>
               <div>
                 <span>Наша почта</span>
-                <p>test@gmail.com</p>
+                <p>kgtradingexportcars@gmail.com
+</p>
               </div>
             </div>
           </div>

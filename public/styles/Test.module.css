@@ -130,6 +130,7 @@
 .main_page_number_first p {
   color: #fff;
   padding-top: 10px;
+  font-size: 12px;
 }
 
 .name_company {
@@ -897,5 +898,16 @@
   }
   .center h1 {
     font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main_page_number{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .main_page_number_first{
+    width: 250px;
+    padding: 10px;
   }
 }
