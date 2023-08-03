@@ -39,10 +39,21 @@ export default function Footer(props) {
 
       <div className={styles.second_part}>
         <ul>
-          <li>Главная</li>
-          <li>О нас</li>
-          <li>Контакты</li>
-          <li>Партнеры</li>
+          <li>
+            <Link href='/'>
+            Главная
+            </Link>
+            </li>
+          <li>
+          <Link href='/aboutus' key="aboutus">
+          О нас
+            </Link></li>
+          <li><Link href='/contacts' key="contacts">
+          Контакты
+            </Link></li>
+          <li><Link href='/catalog' key="catalog">
+          Каталог
+            </Link></li>
         </ul>
       </div>
     </div>

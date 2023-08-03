@@ -3,7 +3,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   /* margin: 0 auto; */
-  margin-top: 800px !important;
+  margin-top: 850px !important;
   width: 80%;
   float: right;
 }
@@ -89,7 +89,7 @@
 .sidebar_main {
   position: absolute;
   left: 0;
-  margin-top: 765px;
+  margin-top: 865px;
 }
 
 .sidebar {
